@@ -4,7 +4,7 @@ This microfrontend setup is configured to have this project acting as the host.
 
 It is responsible to load the children modules/app at runtime and provide them with some context e.g. auth, routing.
 
-`reporting-hub-bop-shell` is a default host(parent) boilerplate meant to consume one or more child microfrontends such as [microfrontend-boilerplate](https://github.com/modusintegration/microfrontend-boilerplate).
+`reporting-hub-bop-shell` is a default host(parent) boilerplate meant to consume one or more child microfrontends such as [microfrontend-boilerplate](https://github.com/mojaloop/microfrontend-boilerplate).
 
 - [Isolation And Defined Boundary](#isolation-and-defined-boundary)
 - [Webpack Module Federation](#webpack-module-federation)
@@ -132,5 +132,5 @@ You can modify it accordingly to your needs. It's worth noting that you should a
 
  - [Module Federation Docs](https://webpack.js.org/concepts/module-federation/)
  - [Module Federation Examples](https://github.com/module-federation/module-federation-examples)
- - [Microfrontend Boilerplate](https://github.com/modusintegration/microfrontend-boilerplate)
+ - [Microfrontend Boilerplate](https://github.com/mojaloop/microfrontend-boilerplate)
  - [Jamstack](https://jamstack.org/)
