@@ -356,14 +356,6 @@ workflows:
             tags:
               only: /.*/
 
-      - vulnerability-check:
-          context: org-global
-          requires:
-            - setup
-          filters:
-            tags:
-              only: /.*/
-
       - audit-licenses:
           context: org-global
           requires:
