@@ -46,6 +46,10 @@ module.exports = {
     host: '0.0.0.0',
     publicPath: '/',
     proxy: {
+      '/api': {
+        target: 'http://localhost',
+        secure: false,
+      },
       '/role-api': {
         target: 'http://localhost:3012',
         secure: false,
