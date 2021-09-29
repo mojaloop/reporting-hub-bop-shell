@@ -1,5 +1,5 @@
 {
-  "name": "microfrontend-shell-boilerplate",
+  "name": "@mojaloop/reporting-hub-bop-shell",
   "version": "1.5.0",
   "description": "",
   "main": "index.js",

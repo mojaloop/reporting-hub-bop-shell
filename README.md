@@ -1,4 +1,4 @@
-![Build Status](https://github.com/modusintegration/microfrontend-shell-boilerplate/actions/workflows/node.js.yml/badge.svg)
+![Build Status](https://github.com/modusintegration/reporting-hub-bop-shell/actions/workflows/node.js.yml/badge.svg)
 
 # Microfrontend Shell Boilerplate
 

@@ -2,9 +2,9 @@
 
 This microfrontend setup is configured to have this project acting as the host.
 
-It is responsible to load the children modules/app at runtime and provide them with some context e.g. auth, routing. 
+It is responsible to load the children modules/app at runtime and provide them with some context e.g. auth, routing.
 
-`microfrontend-shell-boilerplate` is a default host(parent) boilerplate meant to consume one or more child microfrontends such as [microfrontend-boilerplate](https://github.com/modusintegration/microfrontend-boilerplate).
+`reporting-hub-bop-shell` is a default host(parent) boilerplate meant to consume one or more child microfrontends such as [microfrontend-boilerplate](https://github.com/modusintegration/microfrontend-boilerplate).
 
 - [Isolation And Defined Boundary](#isolation-and-defined-boundary)
 - [Webpack Module Federation](#webpack-module-federation)
@@ -42,7 +42,7 @@ You can choose to adopt a different state manager as long as you keep it isolate
 
 #### CSS Namespacing
 
-Due to the nature of the architecture, it's not possible to eliminate the issue of classnames collision. 
+Due to the nature of the architecture, it's not possible to eliminate the issue of classnames collision.
 
 It's good practice to namespace your css classnames in the remote children and keep the host ones very specific.
 
