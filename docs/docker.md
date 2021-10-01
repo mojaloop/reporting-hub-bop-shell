@@ -12,7 +12,7 @@ The app can be run in a docker container.
 The image can be easily built with `docker build` as follows:
 
 ```bash
-docker build -t microfrontend-shell-boilerplate:local .
+docker build -t reporting-hub-bop-shell:local .
 ```
 
 ### Running a local image
@@ -20,7 +20,7 @@ docker build -t microfrontend-shell-boilerplate:local .
 You can run the app container as follows:
 
 ```bash
-docker run -p 8080:8080 microfrontend-shell-boilerplate:local
+docker run -p 8080:8080 reporting-hub-bop-shell:local
 ```
 
 ### Build time configuration
@@ -38,7 +38,7 @@ docker build \
   --build-arg REACT_APP_VERSION=`npm run version --silent` \
   --build-arg REACT_APP_COMMIT=`git rev-parse HEAD`\
   --build-arg PUBLIC_PATH=https://localhost:8080/\
-  -t microfrontend-shell-boilerplate \
+  -t reporting-hub-bop-shell \
   .
 ```
 
@@ -56,5 +56,5 @@ docker run --rm \
   -e LOGOUT_URL="https://your-logout-url" \
   -e AUTH_ENABLED="true" \
   -e MOCK_API="true" \
-   microfrontend-shell-boilerplate
+   reporting-hub-bop-shell
 ```

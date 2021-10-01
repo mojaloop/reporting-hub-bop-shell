@@ -50,6 +50,10 @@ module.exports = {
         target: 'http://localhost',
         secure: false,
       },
+      '/role-api': {
+        target: 'http://localhost:3012',
+        secure: false,
+      },
     },
   },
   output: {
@@ -105,6 +109,14 @@ module.exports = {
             plugins: [{ removeViewBox: false }],
           },
         },
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
       },
     ],
   },

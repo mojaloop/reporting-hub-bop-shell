@@ -1,8 +1,6 @@
-![Build Status](https://github.com/modusintegration/microfrontend-shell-boilerplate/actions/workflows/node.js.yml/badge.svg)
+# Reporting Hub BizOps Shell
 
-# Microfrontend Shell Boilerplate
-
-This is the Shell application boilerplate project to create microfrontends.
+This is the Shell application that accommodates BizOps microfrontends.
 
 It's built in React / Redux / Typescript and it includes some other libraries.
 
@@ -38,7 +36,7 @@ You are now ready to develop :rocket:
 
 ## How to develop
 
-There are a number of rules that need to be followed to ensure good conding standards and keep the application structure compliant with the other Modusbox React applications.
+There are a number of rules that need to be followed to ensure good coding standards and keep the application structure compliant with the other Mojaloop React applications.
 
 Before starting writing code, make sure you follow the [coding guidelines](./docs/coding-guidelines.md).
 
@@ -59,7 +57,7 @@ For detailed instructions on how to contribute, please read the [contribution ru
 
 ## How to deploy
 
-The app is configured to run in a docker image served by an embedded webserver; that makes it portable and convenient when has to run in a kuberneters environment.
+The app is configured to run in a docker image served by an embedded webserver; that makes it portable and convenient when has to run in a kubernetes environment.
 
 For detailed instructions on the deployment process please read [deploying to production](./docs/deploying-to-production.md).
 

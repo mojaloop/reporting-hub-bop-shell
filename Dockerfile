@@ -1,6 +1,6 @@
 # First part, build the app
-FROM node:16-alpine as microfrontend-shell-boilerplate-builder
-LABEL stage=microfrontend-shell-boilerplate-builder
+FROM node:16-alpine as reporting-hub-bop-shell-builder
+LABEL stage=reporting-hub-bop-shell-builder
 
 COPY package.json .
 COPY yarn.lock .

@@ -1,19 +1,19 @@
 const remotes = [
   {
-    path: '/dynamic-runtime-subpath',
-    label: 'Remote App 1',
+    path: '/iam',
+    label: 'Roles Microfrontend',
     menuComponent: 'Menu',
     appComponent: 'App',
     url: `${process.env.REMOTE_1_URL}/app.js`,
-    appName: 'app',
+    appName: 'reporting_hub_bop_role_ui',
   },
   {
-    path: '/app2',
-    label: 'Remote App 2',
+    path: '/transfers',
+    label: 'Transfers Microfrontend',
     menuComponent: 'Menu',
     appComponent: 'App',
-    url: `${process.env.REMOTE_2_URL}/app2.js`,
-    appName: 'app2',
+    url: `${process.env.REMOTE_2_URL}/app.js`,
+    appName: 'reporting_hub_bop_trx_ui',
   },
 ];
 
