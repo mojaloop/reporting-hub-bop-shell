@@ -1,5 +1,5 @@
 # First part, build the app
-FROM node:16-alpine as reporting-hub-bop-shell-builder
+FROM node:lts-alpine as reporting-hub-bop-shell-builder
 LABEL stage=reporting-hub-bop-shell-builder
 
 COPY package.json .
@@ -19,6 +19,15 @@ ENV REACT_APP_COMMIT=$REACT_APP_COMMIT
 # Public Path
 ARG PUBLIC_PATH
 ENV PUBLIC_PATH=$PUBLIC_PATH
+
+# TODO: hard coding these for now since there is no api that
+#       handles the microfrontend remote locations
+ARG REMOTE_1_URL
+ENV REMOTE_1_URL=$REMOTE_1_URL
+
+ARG REMOTE_2_URL
+ENV REMOTE_2_URL=$REMOTE_2_URL
+
 
 RUN yarn build
 
