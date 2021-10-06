@@ -3,8 +3,10 @@ export type AppConfig = {
 };
 
 export type ApiConfig = {
-  apiBaseUrl: string;
-  mockApi: boolean;
+  authApiBaseUrl: string;
+  authMockApi: boolean;
+  remoteApiBaseUrl: string;
+  remoteMockApi: boolean;
 };
 
 export interface AuthConfig {

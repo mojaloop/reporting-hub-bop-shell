@@ -6,7 +6,6 @@ import { actions } from './slice';
 function* requestRemotes() {
   try {
     const { status, data } = yield call(apis.remotes.read, {});
-
     if (is200(status)) {
       yield put(actions.requestRemotesSuccess(data));
     } else {

@@ -14,14 +14,16 @@ services:
         - mojaloop/reporting-hub-bop-shell
       args:
         - PUBLIC_PATH=https://localhost:8080/
-        - REMOTE_1_URL=https://localhost:8081
-        - REMOTE_2_URL=https://localhost:8082
     environment:
-      - API_BASE_URL=/api
+      - AUTH_API_BASE_URL=/
+      - AUTH_MOCK_API=true
+      - REMOTE_API_BASE_URL=/
+      - REMOTE_MOCK_API=false
       - LOGIN_URL=https://your-login-url
       - LOGOUT_URL=https://your-logout-url
       - AUTH_ENABLED=true
-      - MOCK_API=true
+      - REMOTE_1_URL=https://localhost:8081
+      - REMOTE_2_URL=https://localhost:8082
     ports:
       - "8080:8080"
     networks:
