@@ -9,7 +9,7 @@ echo "{
   \"AUTH_ENABLED\": \"${AUTH_ENABLED}\",
   \"LOGIN_URL\": \"${LOGIN_URL}\",
   \"LOGOUT_URL\": \"${LOGOUT_URL}\"
-}" | jq '.' > config.json
+}" | jq '.' > /usr/share/nginx/html/config.json
 
 # This will exec the CMD from your Dockerfile, i.e. "npm start"
 exec "$@"
