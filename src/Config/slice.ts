@@ -6,8 +6,10 @@ export const initialState: ConfigState = {
     basename: '',
   },
   api: {
-    apiBaseUrl: '',
-    mockApi: false,
+    authApiBaseUrl: '',
+    authMockApi: false,
+    remoteApiBaseUrl: '',
+    remoteMockApi: false,
   },
   auth: {
     tokenEndpoint: '',

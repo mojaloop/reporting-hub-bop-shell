@@ -22,8 +22,10 @@ async function boot() {
           basename: config.basename,
         },
         api: {
-          apiBaseUrl: config.apiBaseUrl,
-          mockApi: config.mockApi,
+          authApiBaseUrl: config.authApiBaseUrl,
+          authMockApi: config.authMockApi,
+          remoteApiBaseUrl: config.remoteApiBaseUrl,
+          remoteMockApi: config.remoteMockApi,
         },
         auth: {
           loginEndpoint: config.loginEndpoint,
