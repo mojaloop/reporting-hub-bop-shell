@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reporting-hub-bop-shell
+  labels:
+    app: reporting-hub-bop-shell
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 # exceed the replicas by 1 pod
+  selector:
+    matchLabels:
+      app: reporting-hub-bop-shell
+  template:
+    metadata:
+      labels:
+        app: reporting-hub-bop-shell
+    spec:
+      containers:
+        - name: reporting-hub-bop-shell
+          image: mojaloop/reporting-hub-bop-shell:v1.5.2
+          env:
+            - name: "API_BASE_URL"
+              value: "/api"
+            - name: "LOGIN_URL"
+              value: "https://your-login-url"
+            - name: "LOGOUT_URL"
+              value: "https://your-logout-url"
+            - name: "AUTH_ENABLED"
+              value: "true"
+            - name: "MOCK_API"
+              value: "true"
+            - name: "PUBLIC_PATH"
+              value: "https://localhost:8080/"
+            - name: "REMOTE_1_URL"
+              value: "https://localhost:8081"
+            - name: "REMOTE_2_URL"
+              value: "https://localhost:8082"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reporting-hub-bop-shell-service
+spec:
+  selector:
+    app: reporting-hub-bop-shell
+  type: NodePort
+  ports:
+    - name: port
+      protocol: TCP
+      port: 8080
+      targetPort: 8080

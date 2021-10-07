@@ -33,10 +33,12 @@ COPY docker/Caddyfile /srv/Caddyfile
 COPY docker/entrypoint.sh /entrypoint.sh
 COPY docker/createJSONConfig.sh /createJSONConfig.sh
 COPY docker/createRemoteConfig.sh /createRemoteConfig.sh
+COPY docker/loadRuntimeConfig.sh /loadRuntimeConfig.sh
 
 RUN chmod +x /entrypoint.sh
 RUN chmod +x /createJSONConfig.sh
 RUN chmod +x /createRemoteConfig.sh
+RUN chmod +x /loadRuntimeConfig.sh
 
 # Provide environment variables for setting endpoints dynamically
 ARG REMOTE_API_BASE_URL
