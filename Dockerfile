@@ -1,13 +1,18 @@
-# First part, build the app
-FROM node:lts-alpine as reporting-hub-bop-shell-builder
-LABEL stage=reporting-hub-bop-shell-builder
+FROM node:lts-alpine as builder
 
-COPY package.json .
-COPY yarn.lock .
+WORKDIR /opt/reporting-hub-bop-shell
+ENV PATH /opt/reporting-hub-bop-shell/node_modules/.bin:$PATH
 
+RUN apk add --no-cache -t build-dependencies git make gcc g++ python libtool autoconf automake \
+    && cd $(npm root -g)/npm \
+    && npm config set unsafe-perm true \
+    && npm install -g node-gyp
+
+COPY package.json /opt/reporting-hub-bop-shell/
+COPY yarn.lock /opt/reporting-hub-bop-shell/
 RUN yarn --frozen-lockfile
 
-COPY ./ .
+COPY ./ /opt/reporting-hub-bop-shell/
 
 # Adds the package version and commit hash
 ARG REACT_APP_VERSION
@@ -16,29 +21,32 @@ ENV REACT_APP_VERSION=$REACT_APP_VERSION
 ARG REACT_APP_COMMIT
 ENV REACT_APP_COMMIT=$REACT_APP_COMMIT
 
-# Public Path
+# Public Path - Placeholder that is overwritten at runtime
 ARG PUBLIC_PATH
-ENV PUBLIC_PATH=$PUBLIC_PATH
+ENV PUBLIC_PATH=__PUBLIC_PATH__
 
 RUN yarn build
 
 # Second part, create a config at boostrap via entrypoint and and serve it
-FROM caddy/caddy:alpine
+FROM nginx:1.16.0-alpine
 
 # JQ is used to convert from JSON string to json file in bash
 RUN apk add --no-cache jq
 
-COPY --from=0 dist/ .
-COPY docker/Caddyfile /srv/Caddyfile
-COPY docker/entrypoint.sh /entrypoint.sh
-COPY docker/createJSONConfig.sh /createJSONConfig.sh
-COPY docker/createRemoteConfig.sh /createRemoteConfig.sh
-COPY docker/loadRuntimeConfig.sh /loadRuntimeConfig.sh
+COPY --from=builder /opt/reporting-hub-bop-shell/dist/ /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/start.sh /usr/share/nginx/start.sh
 
-RUN chmod +x /entrypoint.sh
-RUN chmod +x /createJSONConfig.sh
-RUN chmod +x /createRemoteConfig.sh
-RUN chmod +x /loadRuntimeConfig.sh
+COPY docker/entrypoint.sh /usr/share/nginx/html/entrypoint.sh
+COPY docker/createJSONConfig.sh /usr/share/nginx/html/createJSONConfig.sh
+COPY docker/createRemoteConfig.sh /usr/share/nginx/html/createRemoteConfig.sh
+COPY docker/loadRuntimeConfig.sh /usr/share/nginx/html/loadRuntimeConfig.sh
+
+RUN chmod +x /usr/share/nginx/html/entrypoint.sh
+RUN chmod +x /usr/share/nginx/html/createJSONConfig.sh
+RUN chmod +x /usr/share/nginx/html/createRemoteConfig.sh
+RUN chmod +x /usr/share/nginx/html/loadRuntimeConfig.sh
 
 # Provide environment variables for setting endpoints dynamically
 ARG REMOTE_API_BASE_URL
@@ -70,9 +78,9 @@ ENV REMOTE_2_URL=$REMOTE_2_URL
 
 EXPOSE 8080
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/share/nginx/html/entrypoint.sh"]
 
-CMD ["caddy", "run", "--watch"]
+CMD ["sh", "/usr/share/nginx/start.sh"]
 # TODO: Need to add 8080 to image-scan whitelist
 #       Need to switch user away from root
 #       Investigate Feed data unavailable, cannot perform CVE scan for distro: alpine:3.14.2

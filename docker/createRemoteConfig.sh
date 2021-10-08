@@ -18,7 +18,7 @@ echo "[
     \"url\": \"${REMOTE_2_URL}/app.js\",
     \"appName\": \"reporting_hub_bop_trx_ui\"
   }
-]" | jq '.' > remotes.json
+]" | jq '.' > /usr/share/nginx/html/remotes.json
 
 # This will exec the CMD from your Dockerfile, i.e. "npm start"
 exec "$@"
