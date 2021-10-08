@@ -28,10 +28,8 @@ ENV PUBLIC_PATH=__PUBLIC_PATH__
 RUN yarn build
 
 # Second part, create a config at boostrap via entrypoint and and serve it
-FROM nginx:1.16.0-alpine
-
-# JQ is used to convert from JSON string to json file in bash
-RUN apk add --no-cache jq
+FROM nginxinc/nginx-unprivileged
+WORKDIR /usr/share/nginx/html
 
 COPY --from=builder /opt/reporting-hub-bop-shell/dist/ /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf /etc/nginx/nginx.conf
@@ -79,7 +77,6 @@ ENV REMOTE_2_URL=$REMOTE_2_URL
 EXPOSE 8080
 
 ENTRYPOINT ["/usr/share/nginx/html/entrypoint.sh"]
-
 CMD ["sh", "/usr/share/nginx/start.sh"]
 # TODO: Need to add 8080 to image-scan whitelist
 #       Need to switch user away from root
