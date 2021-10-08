@@ -29,6 +29,7 @@ RUN yarn build
 
 # Second part, create a config at boostrap via entrypoint and and serve it
 FROM nginx:1.16.0-alpine
+WORKDIR /usr/share/nginx/html
 
 # JQ is used to convert from JSON string to json file in bash
 RUN apk add --no-cache jq
