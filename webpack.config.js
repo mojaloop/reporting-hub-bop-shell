@@ -10,11 +10,10 @@ require('dotenv').config({
   path: './.env',
 });
 
-const { DEV_PORT, VERCEL_URL, PUBLIC_PATH } = process.env;
+const { DEV_PORT } = process.env;
 
 const config = {
   DEV_PORT,
-  PUBLIC_PATH: VERCEL_URL ? `https://${VERCEL_URL}/` : PUBLIC_PATH,
 };
 
 module.exports = {
