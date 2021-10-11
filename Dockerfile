@@ -1,5 +1,4 @@
 FROM node:lts-alpine as builder
-
 WORKDIR /opt/reporting-hub-bop-shell
 ENV PATH /opt/reporting-hub-bop-shell/node_modules/.bin:$PATH
 
@@ -20,10 +19,6 @@ ENV REACT_APP_VERSION=$REACT_APP_VERSION
 
 ARG REACT_APP_COMMIT
 ENV REACT_APP_COMMIT=$REACT_APP_COMMIT
-
-# Public Path - Placeholder that is overwritten at runtime
-ARG PUBLIC_PATH
-ENV PUBLIC_PATH=__PUBLIC_PATH__
 
 RUN yarn build
 
