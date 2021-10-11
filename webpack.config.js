@@ -59,7 +59,10 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: config.PUBLIC_PATH, // Where it's going to be expected to be published for being externally loaded
+    // It automatically determines the public path from either
+    // `import.meta.url`, `document.currentScript`, `<script />`
+    // or `self.location`.
+    publicPath: 'auto',
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
