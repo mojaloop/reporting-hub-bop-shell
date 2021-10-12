@@ -1,6 +1,10 @@
-# Changelog
+# Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [1.6.2](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.6.1...v1.6.2) (2021-10-12)
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### Maintenance
+
+* **#2514:** change dockerfile for productionization ([#8](https://github.com/mojaloop/reporting-hub-bop-shell/issues/8)) ([6ba9db2](https://github.com/mojaloop/reporting-hub-bop-shell/commit/6ba9db25fd897498e181f14a16fe09aa08c49852)), closes [#2514](https://github.com/mojaloop/reporting-hub-bop-shell/issues/2514)
 
 ### [1.6.1](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.6.0...v1.6.1) (2021-10-08)
 
