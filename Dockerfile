@@ -1,5 +1,4 @@
 FROM node:lts-alpine as builder
-
 WORKDIR /opt/reporting-hub-bop-shell
 ENV PATH /opt/reporting-hub-bop-shell/node_modules/.bin:$PATH
 
@@ -21,14 +20,11 @@ ENV REACT_APP_VERSION=$REACT_APP_VERSION
 ARG REACT_APP_COMMIT
 ENV REACT_APP_COMMIT=$REACT_APP_COMMIT
 
-# Public Path - Placeholder that is overwritten at runtime
-ARG PUBLIC_PATH
-ENV PUBLIC_PATH=__PUBLIC_PATH__
-
 RUN yarn build
 
 # Second part, create a config at boostrap via entrypoint and and serve it
 FROM nginx:1.16.0-alpine
+WORKDIR /usr/share/nginx/html
 
 # JQ is used to convert from JSON string to json file in bash
 RUN apk add --no-cache jq
