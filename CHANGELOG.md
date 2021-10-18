@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [1.6.3](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.6.2...v1.6.3) (2021-10-18)
+
+
+### Maintenance
+
+* config docker to run as non root ([#9](https://github.com/mojaloop/reporting-hub-bop-shell/issues/9)) ([0695589](https://github.com/mojaloop/reporting-hub-bop-shell/commit/0695589b7067b14695b7a804057b2bf5754c1af6))
+
 ### [1.6.2](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.6.1...v1.6.2) (2021-10-12)
 
 
