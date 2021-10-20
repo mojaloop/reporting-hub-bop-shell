@@ -4,10 +4,11 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
   const { protocol, host } = window.location;
   const baseUrl = `${protocol}//${host}`;
   // Using the same protocol as we've been loaded from to avoid Mixed Content error.
+  console.log(process.env.REACT_APP_AUTH_API_BASE_URL);
   const defaults = {
-    loginEndpoint: `${baseUrl}/auth/auth/login`,
-    logoutEndpoint: `${baseUrl}/kratos/self-service/browser/flows/logout`,
-    tokenEndpoint: `${baseUrl}/kratos/sessions/whoami`,
+    loginEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/login?return_to=http://localhost:3010/callback`,
+    logoutEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/browser/flows/logout`,
+    tokenEndpoint: `/sessions/whoami`,
     isAuthEnabled: process.env.REACT_APP_AUTH_ENABLED !== 'false',
     basename: baseUrl,
     authApiBaseUrl: `${process.env.REACT_APP_AUTH_API_BASE_URL}`,
@@ -15,7 +16,7 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     remoteApiBaseUrl: `${process.env.REACT_APP_REMOTE_API_BASE_URL}`,
     remoteMockApi: process.env.REACT_APP_REMOTE_MOCK_API === 'true',
   };
-
+  console.log(defaults.tokenEndpoint);
   const config = { ...defaults };
 
   try {

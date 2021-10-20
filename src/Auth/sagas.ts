@@ -1,12 +1,28 @@
 import apis from 'utils/api';
 import { is200, is401 } from '@modusbox/ts-utils/lib/http';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
 import * as selectors from './selectors';
 import { actions } from './slice';
 
 function* doAuth() {
   try {
-    const { status, data } = yield call(apis.whoami.read, {});
+    // const { status, data } = yield call(apis.whoami.read, {});
+
+    const apiCall = () => {
+      return axios
+        .get('http://127.0.0.1:4433/sessions/whoami', {
+          withCredentials: true,
+        })
+        .then((response) => {
+          return response;
+        })
+        .catch((err) => {
+          throw err;
+        });
+    };
+
+    const { data, status } = yield call(apiCall);
 
     if (is200(status)) {
       yield put(actions.doAuthSuccess(data));

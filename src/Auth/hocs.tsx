@@ -6,7 +6,7 @@ import Auth from './Auth';
 export function withAuth(App: ComponentType<AuthAppProps>) {
   const AuthLoader = (props: AuthProps): JSX.Element => {
     const { isAuthEnabled, isLoggedIn, userEmail, doAuth, onLogoutClick } = props;
-
+    console.log(props);
     useEffect(() => {
       if (isAuthEnabled) {
         doAuth();
