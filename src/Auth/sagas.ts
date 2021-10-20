@@ -6,9 +6,10 @@ import { actions } from './slice';
 
 function* doAuth() {
   try {
+    const tokenEndpoint: string = yield select(selectors.getTokenEndpoint);
     const apiCall = () => {
       return axios
-        .get('http://127.0.0.1:4433/sessions/whoami', {
+        .get(tokenEndpoint, {
           withCredentials: true,
         })
         .then((response) => {
@@ -40,9 +41,10 @@ function* doAuth() {
 }
 
 function* logout() {
+  const logoutEndpoint: string = yield select(selectors.getLogoutEndpoint);
   const apiCall = () => {
     return axios
-      .get('http://127.0.0.1:4455/.ory/kratos/public/self-service/logout/browser', {
+      .get(logoutEndpoint, {
         withCredentials: true,
       })
       .then((response) => {
