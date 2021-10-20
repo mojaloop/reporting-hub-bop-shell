@@ -6,8 +6,8 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
   // Using the same protocol as we've been loaded from to avoid Mixed Content error.
   console.log(process.env.REACT_APP_AUTH_API_BASE_URL);
   const defaults = {
-    loginEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/login?return_to=http://localhost:3010/callback`,
-    logoutEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/browser/flows/logout`,
+    loginEndpoint: `http://127.0.0.1:4455/.ory/kratos/public/self-service/login?return_to=http://127.0.0.1:3010`,
+    logoutEndpoint: `http://127.0.0.1:4455/.ory/kratos/public/self-service/logout?return_to=http://localhost:3010`,
     tokenEndpoint: `/sessions/whoami`,
     isAuthEnabled: process.env.REACT_APP_AUTH_ENABLED !== 'false',
     basename: baseUrl,

@@ -1,4 +1,3 @@
-import apis from 'utils/api';
 import { is200, is401 } from '@modusbox/ts-utils/lib/http';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
@@ -7,8 +6,6 @@ import { actions } from './slice';
 
 function* doAuth() {
   try {
-    // const { status, data } = yield call(apis.whoami.read, {});
-
     const apiCall = () => {
       return axios
         .get('http://127.0.0.1:4433/sessions/whoami', {
@@ -18,7 +15,7 @@ function* doAuth() {
           return response;
         })
         .catch((err) => {
-          throw err;
+          return err.response;
         });
     };
 
@@ -43,7 +40,21 @@ function* doAuth() {
 }
 
 function* logout() {
-  window.location.href = yield select(selectors.getLogoutEndpoint);
+  const apiCall = () => {
+    return axios
+      .get('http://127.0.0.1:4455/.ory/kratos/public/self-service/logout/browser', {
+        withCredentials: true,
+      })
+      .then((response) => {
+        return response;
+      })
+      .catch((err) => {
+        return err.response;
+      });
+  };
+
+  const { data } = yield call(apiCall);
+  window.location.href = data.logout_url;
 }
 
 function* doAuthSaga() {
