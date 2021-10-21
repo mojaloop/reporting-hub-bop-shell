@@ -13,13 +13,14 @@ services:
       cache_from:
         - mojaloop/reporting-hub-bop-shell
     environment:
-      - AUTH_API_BASE_URL=/
-      - AUTH_MOCK_API=true
-      - REMOTE_API_BASE_URL=/
-      - REMOTE_MOCK_API=false
-      - LOGIN_URL=https://your-login-url
-      - LOGOUT_URL=https://your-logout-url
+      # - AUTH_API_BASE_URL=/api
+      - AUTH_MOCK_API=false
+      - REMOTE_API_BASE_URL=/remote
+      - REMOTE_MOCK_API=true
+      - LOGIN_URL=http://127.0.0.1:4433/self-service/login/browser
+      - LOGOUT_URL=http://127.0.0.1:4433/self-service/logout
       - AUTH_ENABLED=true
+      - AUTH_TOKEN_ENDPOINT=http://127.0.0.1:4433/sessions/whoami
       - REMOTE_1_URL=http://localhost:8081
       - REMOTE_2_URL=http://localhost:8082
     ports:
