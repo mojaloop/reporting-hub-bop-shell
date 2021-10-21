@@ -1,26 +1,17 @@
 import { is200, is401 } from '@modusbox/ts-utils/lib/http';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import api from 'utils/api';
+import { MakeResponse } from '@modusbox/redux-utils/lib/api';
 import * as selectors from './selectors';
 import { actions } from './slice';
+import { LoggedUser } from './types';
 
 function* doAuth() {
   try {
-    const authTokenEndpoint: string = yield select(selectors.getAuthTokenEndpoint);
-    const apiCall = () => {
-      return axios
-        .get(authTokenEndpoint, {
-          withCredentials: true,
-        })
-        .then((response) => {
-          return response;
-        })
-        .catch((err) => {
-          return err.response;
-        });
-    };
-
-    const { data, status } = yield call(apiCall);
+    // @ts-ignore
+    const response = yield call(api.whoami.read) as MakeResponse<LoggedUser>;
+    const { data, status } = response;
 
     if (is200(status)) {
       yield put(actions.doAuthSuccess(data));
