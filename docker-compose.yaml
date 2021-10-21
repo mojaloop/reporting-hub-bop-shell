@@ -1,9 +1,12 @@
+# docker-compose --profile ory --profile shell up
 version: '3.7'
 networks:
   mojaloop-net:
     name: mojaloop-net
 services:
+
   reporting-hub-bop-shell:
+    profiles: ["shell"]
     container_name: reporting-hub-bop-shell
     image: mojaloop/reporting-hub-bop-shell
     build:
