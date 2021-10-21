@@ -30,7 +30,7 @@ async function boot() {
         auth: {
           loginEndpoint: config.loginEndpoint,
           logoutEndpoint: config.logoutEndpoint,
-          whoAmIEndpoint: config.whoAmIEndpoint,
+          authTokenEndpoint: config.authTokenEndpoint,
           isAuthEnabled: config.isAuthEnabled,
         },
       },

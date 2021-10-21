@@ -68,39 +68,7 @@ RUN chmod +x /usr/share/nginx/html/createJSONConfig.sh
 RUN chmod +x /usr/share/nginx/html/createRemoteConfig.sh
 RUN chmod +x /usr/share/nginx/html/loadRuntimeConfig.sh
 
-# Provide environment variables for setting endpoints dynamically
-ARG REMOTE_API_BASE_URL
-ENV REMOTE_API_BASE_URL=$REMOTE_API_BASE_URL
-
-ARG REMOTE_MOCK_API
-ENV REMOTE_MOCK_API=$REMOTE_MOCK_API
-
-ARG AUTH_API_BASE_URL
-ENV AUTH_API_BASE_URL=$AUTH_API_BASE_URL
-
-ARG AUTH_MOCK_API
-ENV AUTH_MOCK_API=$AUTH_MOCK_API
-
-ARG AUTH_ENABLED
-ENV AUTH_ENABLED=$AUTH_ENABLED
-
-ARG LOGIN_URL
-ENV LOGIN_URL=$LOGIN_URL
-
-ARG LOGOUT_URL
-ENV LOGOUT_URL=$LOGOUT_URL
-
-ARG AUTH_TOKEN_ENDPOINT
-ENV AUTH_TOKEN_ENDPOINT=$AUTH_TOKEN_ENDPOINT
-
-ARG REMOTE_1_URL
-ENV REMOTE_1_URL=$REMOTE_1_URL
-
-ARG REMOTE_2_URL
-ENV REMOTE_2_URL=$REMOTE_2_URL
-
 USER appuser
-
 EXPOSE 8080
 ENTRYPOINT ["/usr/share/nginx/html/entrypoint.sh"]
 CMD ["sh", "/usr/share/nginx/start.sh"]
