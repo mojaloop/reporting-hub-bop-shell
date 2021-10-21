@@ -6,7 +6,7 @@ import { actions } from './slice';
 
 function* doAuth() {
   try {
-    const whoAmIEndpoint: string = yield select(selectors.getwhoAmIEndpoint);
+    const whoAmIEndpoint: string = yield select(selectors.getWhoAmIEndpoint);
     const apiCall = () => {
       return axios
         .get(whoAmIEndpoint, {

@@ -21,6 +21,7 @@ function App({ userEmail, onMount, remotes, logout }: AppProps) {
 
   return (
     <Layout className="layout__container">
+      {/* TODO: Preferably we pop up a menu here */}
       <Layout.Navbar
         username={userEmail}
         title="Business Operations Portal"
