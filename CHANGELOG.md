@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+## [1.7.0](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.6.3...v1.7.0) (2021-10-21)
+
+
+### Features
+
+* parameterise token endpoint ([#12](https://github.com/mojaloop/reporting-hub-bop-shell/issues/12)) ([dc21676](https://github.com/mojaloop/reporting-hub-bop-shell/commit/dc21676c0b69e17639a8bb9dbc6f88dfc6c7746b))
+
 ### [1.6.3](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.6.2...v1.6.3) (2021-10-18)
 
 

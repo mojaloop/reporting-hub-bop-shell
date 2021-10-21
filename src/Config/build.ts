@@ -25,6 +25,7 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
       REMOTE_API_BASE_URL,
       REMOTE_MOCK_API,
       AUTH_ENABLED,
+      AUTH_TOKEN_ENDPOINT,
       LOGIN_URL,
       LOGOUT_URL,
       WHOAMI_URL,
@@ -55,6 +56,9 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     }
     if (AUTH_ENABLED !== undefined) {
       config.isAuthEnabled = AUTH_ENABLED !== 'false';
+    }
+    if (AUTH_TOKEN_ENDPOINT !== undefined) {
+      config.tokenEndpoint = AUTH_TOKEN_ENDPOINT;
     }
   } catch (err) {
     // eslint-disable-next-line
