@@ -21,9 +21,13 @@ secrets:
 
 selfservice:
     default_browser_return_url: http://127.0.0.1:4455/
+    # Important to configure!
     whitelisted_return_urls:
         - http://127.0.0.1:4455
         - http://127.0.0.1:3010
+        - http://localhost:3010
+        - http://127.0.0.1:8080
+        - http://localhost:8080
     methods:
         password:
             enabled: true
@@ -47,7 +51,8 @@ selfservice:
         login:
             ui_url: http://127.0.0.1:4455/auth/login
             after:
-              default_browser_return_url: http://127.0.0.1:3010
+                # Important to configure!
+              default_browser_return_url: http://127.0.0.1:8080
             lifespan: 10m
         registration:
             lifespan: 10m
@@ -61,9 +66,12 @@ serve:
     public:
         base_url: http://127.0.0.1:4433/
         cors:
+            # Important to configure!
             allowed_origins:
                 - http://127.0.0.1:3010
                 - http://localhost:3010
+                - http://127.0.0.1:8080
+                - http://localhost:8080
                 - http://127.0.0.1:4455
             allowed_methods:
                 - POST

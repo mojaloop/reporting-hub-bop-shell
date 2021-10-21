@@ -6,10 +6,10 @@ import { actions } from './slice';
 
 function* doAuth() {
   try {
-    const tokenEndpoint: string = yield select(selectors.getTokenEndpoint);
+    const whoAmIEndpoint: string = yield select(selectors.getwhoAmIEndpoint);
     const apiCall = () => {
       return axios
-        .get(tokenEndpoint, {
+        .get(whoAmIEndpoint, {
           withCredentials: true,
         })
         .then((response) => {

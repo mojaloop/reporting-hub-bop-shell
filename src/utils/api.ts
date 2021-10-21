@@ -19,7 +19,7 @@ const builder = buildEndpointBuilder<State>();
 export default buildApis({
   whoami: builder({
     service: services.kratos,
-    url: (state: State) => state.config.auth.tokenEndpoint,
+    url: (state: State) => state.config.auth.whoAmIEndpoint,
     mock: authMock,
   }),
   // NOTE: instead of an actual api, using local json file to store

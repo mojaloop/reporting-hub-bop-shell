@@ -7,7 +7,7 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
   const defaults = {
     loginEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/login`,
     logoutEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/logout/browser`,
-    tokenEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/sessions/whoami`,
+    whoAmIEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/sessions/whoami`,
     isAuthEnabled: process.env.REACT_APP_AUTH_ENABLED !== 'false',
     basename: baseUrl,
     authApiBaseUrl: `${process.env.REACT_APP_AUTH_API_BASE_URL}`,
@@ -27,6 +27,7 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
       AUTH_ENABLED,
       LOGIN_URL,
       LOGOUT_URL,
+      WHOAMI_URL,
     } = await fetch(`${baseUrl}/config.json`).then((response) => response.json());
 
     if (LOGIN_URL !== undefined) {
@@ -34,6 +35,9 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     }
     if (LOGOUT_URL !== undefined) {
       config.logoutEndpoint = LOGOUT_URL;
+    }
+    if (WHOAMI_URL !== undefined) {
+      config.whoAmIEndpoint = WHOAMI_URL;
     }
     if (AUTH_API_BASE_URL !== undefined) {
       config.authApiBaseUrl = AUTH_API_BASE_URL;
