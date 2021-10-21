@@ -1,6 +1,6 @@
 {
   "name": "@mojaloop/reporting-hub-bop-shell",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "",
   "main": "index.js",
   "scripts": {
