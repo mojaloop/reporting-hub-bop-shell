@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+## [1.8.0](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.7.0...v1.8.0) (2021-10-26)
+
+
+### Features
+
+* add oathkeeper/kratos testing setup and validate auth flow ([#10](https://github.com/mojaloop/reporting-hub-bop-shell/issues/10)) ([c9acc55](https://github.com/mojaloop/reporting-hub-bop-shell/commit/c9acc55f69e385f80d9616483ce46a2c465a925c))
+
 ## [1.7.0](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.6.3...v1.7.0) (2021-10-21)
 
 
