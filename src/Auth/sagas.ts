@@ -1,6 +1,5 @@
 import { is200, is401 } from '@modusbox/ts-utils/lib/http';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
-import axios from 'axios';
 import api from 'utils/api';
 import { MakeResponse } from '@modusbox/redux-utils/lib/api';
 import * as selectors from './selectors';
@@ -33,21 +32,7 @@ function* doAuth() {
 
 function* logout() {
   const logoutEndpoint: string = yield select(selectors.getLogoutEndpoint);
-  const apiCall = () => {
-    return axios
-      .get(logoutEndpoint, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        return response;
-      })
-      .catch((err) => {
-        return err.response;
-      });
-  };
-
-  const { data } = yield call(apiCall);
-  window.location.href = data.logout_url;
+  window.location.href = logoutEndpoint;
 }
 
 function* doAuthSaga() {
