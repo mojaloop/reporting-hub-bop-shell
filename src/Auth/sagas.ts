@@ -1,12 +1,17 @@
-import apis from 'utils/api';
 import { is200, is401 } from '@modusbox/ts-utils/lib/http';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
+import api from 'utils/api';
+import { MakeResponse } from '@modusbox/redux-utils/lib/api';
 import * as selectors from './selectors';
 import { actions } from './slice';
+import { LoggedUser } from './types';
 
 function* doAuth() {
   try {
-    const { status, data } = yield call(apis.whoami.read, {});
+    // @ts-ignore
+    const response = yield call(api.whoami.read) as MakeResponse<LoggedUser>;
+    const { data, status } = response;
 
     if (is200(status)) {
       yield put(actions.doAuthSuccess(data));
@@ -27,7 +32,22 @@ function* doAuth() {
 }
 
 function* logout() {
-  window.location.href = yield select(selectors.getLogoutEndpoint);
+  const logoutEndpoint: string = yield select(selectors.getLogoutEndpoint);
+  const apiCall = () => {
+    return axios
+      .get(logoutEndpoint, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        return response;
+      })
+      .catch((err) => {
+        return err.response;
+      });
+  };
+
+  const { data } = yield call(apiCall);
+  window.location.href = data.logout_url;
 }
 
 function* doAuthSaga() {

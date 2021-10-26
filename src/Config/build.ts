@@ -5,9 +5,9 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
   const baseUrl = `${protocol}//${host}`;
   // Using the same protocol as we've been loaded from to avoid Mixed Content error.
   const defaults = {
-    loginEndpoint: `${baseUrl}/auth/auth/login`,
-    logoutEndpoint: `${baseUrl}/kratos/self-service/browser/flows/logout`,
-    tokenEndpoint: `${baseUrl}/kratos/sessions/whoami`,
+    loginEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/login`,
+    logoutEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/logout/browser`,
+    authTokenEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/sessions/whoami`,
     isAuthEnabled: process.env.REACT_APP_AUTH_ENABLED !== 'false',
     basename: baseUrl,
     authApiBaseUrl: `${process.env.REACT_APP_AUTH_API_BASE_URL}`,
@@ -25,9 +25,9 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
       REMOTE_API_BASE_URL,
       REMOTE_MOCK_API,
       AUTH_ENABLED,
-      AUTH_TOKEN_ENDPOINT,
       LOGIN_URL,
       LOGOUT_URL,
+      AUTH_TOKEN_URL,
     } = await fetch(`${baseUrl}/config.json`).then((response) => response.json());
 
     if (LOGIN_URL !== undefined) {
@@ -35,6 +35,9 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     }
     if (LOGOUT_URL !== undefined) {
       config.logoutEndpoint = LOGOUT_URL;
+    }
+    if (AUTH_TOKEN_URL !== undefined) {
+      config.authTokenEndpoint = AUTH_TOKEN_URL;
     }
     if (AUTH_API_BASE_URL !== undefined) {
       config.authApiBaseUrl = AUTH_API_BASE_URL;
@@ -52,9 +55,6 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     }
     if (AUTH_ENABLED !== undefined) {
       config.isAuthEnabled = AUTH_ENABLED !== 'false';
-    }
-    if (AUTH_TOKEN_ENDPOINT !== undefined) {
-      config.tokenEndpoint = AUTH_TOKEN_ENDPOINT;
     }
   } catch (err) {
     // eslint-disable-next-line

@@ -5,7 +5,7 @@ import appConnector, { AppProps } from './connectors';
 import { Remote } from './types';
 import './App.scss';
 
-function App({ onMount, remotes }: AppProps) {
+function App({ userEmail, onMount, remotes, logout }: AppProps) {
   useEffect(() => {
     onMount();
   }, []);
@@ -21,7 +21,12 @@ function App({ onMount, remotes }: AppProps) {
 
   return (
     <Layout className="layout__container">
-      <Layout.Navbar username="Guest User" title="Business Operations Portal">
+      {/* TODO: Preferably we pop up a menu here */}
+      <Layout.Navbar
+        username={userEmail}
+        title="Business Operations Portal"
+        onUsernameClick={logout}
+      >
         <div className="rc-layout__navbar__logo" />
       </Layout.Navbar>
       <Layout.Content>{content}</Layout.Content>

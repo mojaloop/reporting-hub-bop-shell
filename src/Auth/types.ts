@@ -8,8 +8,13 @@ export interface LoggedUser {
     id: string;
     schema_id: string;
     schema_url: string;
+    state: string;
+    state_changed_at: string;
     traits: {
-      name: string;
+      name: {
+        last: string;
+        first: string;
+      };
       role: string;
       email: string;
     };
