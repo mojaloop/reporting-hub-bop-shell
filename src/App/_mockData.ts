@@ -15,6 +15,22 @@ const remotes = [
     url: `${process.env.REMOTE_2_URL}/app.js`,
     appName: 'reporting_hub_bop_trx_ui',
   },
+  {
+    path: '/settlements',
+    label: 'Settlements Microfrontend',
+    menuComponent: 'Menu',
+    appComponent: 'App',
+    url: `${process.env.REMOTE_3_URL}/app.js`,
+    appName: 'reporting_hub_bop_settlements_ui',
+  },
+  {
+    path: '/positions',
+    label: 'Financial Positions Microfrontend',
+    menuComponent: 'Menu',
+    appComponent: 'App',
+    url: `${process.env.REMOTE_4_URL}/app.js`,
+    appName: 'reporting_hub_bop_positions_ui',
+  },
 ];
 
 export default {
