@@ -14,7 +14,6 @@ services:
       cache_from:
         - mojaloop/reporting-hub-bop-shell
     environment:
-      - PUBLIC_PATH=http://localhost:8080/
       - LOGIN_URL=http://127.0.0.1:4455/.ory/kratos/public/self-service/login
       - LOGOUT_URL=http://127.0.0.1:4455/.ory/kratos/public/self-service/logout/browser
       - AUTH_TOKEN_URL=http://127.0.0.1:4455/.ory/kratos/public/sessions/whoami

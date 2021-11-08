@@ -10,11 +10,10 @@ require('dotenv').config({
   path: './.env',
 });
 
-const { DEV_PORT, PUBLIC_PATH } = process.env;
+const { DEV_PORT } = process.env;
 
 const config = {
   DEV_PORT,
-  PUBLIC_PATH
 };
 
 module.exports = {
@@ -95,10 +94,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    // Do not use `auto` for publicPath. After testing nested routes
-    // seem to break.
-    // Lean to the side of being more explicit.
-    publicPath: config.PUBLIC_PATH,
+    // Do not use `auto` for publicPath.
+    // After testing, `auto` breaks nested routes.
+    publicPath: '/',
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
