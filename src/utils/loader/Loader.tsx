@@ -68,7 +68,6 @@ export default class Loader extends Component<LoaderProps> {
       ...otherProps
     } = this.props;
     const { AsyncComponent } = this;
-
     return (
       <ErrorBoundary>
         <Suspense fallback={<Fallback />}>

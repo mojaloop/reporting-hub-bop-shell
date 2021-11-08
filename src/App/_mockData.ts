@@ -1,7 +1,7 @@
 const remotes = [
   {
     path: '/iam',
-    label: 'Roles Microfrontend',
+    label: 'Roles',
     menuComponent: 'Menu',
     appComponent: 'App',
     url: `${process.env.REMOTE_1_URL}/app.js`,
@@ -9,7 +9,7 @@ const remotes = [
   },
   {
     path: '/transfers',
-    label: 'Transfers Microfrontend',
+    label: 'Transfers',
     menuComponent: 'Menu',
     appComponent: 'App',
     url: `${process.env.REMOTE_2_URL}/app.js`,
@@ -17,7 +17,7 @@ const remotes = [
   },
   {
     path: '/settlements',
-    label: 'Settlements Microfrontend',
+    label: 'Settlements',
     menuComponent: 'Menu',
     appComponent: 'App',
     url: `${process.env.REMOTE_3_URL}/app.js`,
@@ -25,7 +25,7 @@ const remotes = [
   },
   {
     path: '/positions',
-    label: 'Financial Positions Microfrontend',
+    label: 'Financial Positions',
     menuComponent: 'Menu',
     appComponent: 'App',
     url: `${process.env.REMOTE_4_URL}/app.js`,

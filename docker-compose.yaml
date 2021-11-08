@@ -14,6 +14,7 @@ services:
       cache_from:
         - mojaloop/reporting-hub-bop-shell
     environment:
+      - PUBLIC_PATH=http://localhost:8080/
       - LOGIN_URL=http://127.0.0.1:4455/.ory/kratos/public/self-service/login
       - LOGOUT_URL=http://127.0.0.1:4455/.ory/kratos/public/self-service/logout/browser
       - AUTH_TOKEN_URL=http://127.0.0.1:4455/.ory/kratos/public/sessions/whoami
@@ -24,6 +25,8 @@ services:
       - REMOTE_MOCK_API=false
       - REMOTE_1_URL=http://localhost:8081
       - REMOTE_2_URL=http://localhost:8082
+      - REMOTE_3_URL=http://localhost:8083
+      - REMOTE_4_URL=http://localhost:8084
     ports:
       - "8080:8080"
     networks:

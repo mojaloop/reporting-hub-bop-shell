@@ -17,6 +17,22 @@ echo "[
     \"appComponent\": \"App\",
     \"url\": \"${REMOTE_2_URL}/app.js\",
     \"appName\": \"reporting_hub_bop_trx_ui\"
+  },
+  {
+    \"path\": \"/settlements\",
+    \"label\": \"Settlements\",
+    \"menuComponent\": \"Menu\",
+    \"appComponent\": \"App\",
+    \"url\": \"${REMOTE_3_URL}/app.js\",
+    \"appName\": \"reporting_hub_bop_settlements_ui\"
+  },
+  {
+    \"path\": \"/positions\",
+    \"label\": \"Financial Positions\",
+    \"menuComponent\": \"Menu\",
+    \"appComponent\": \"App\",
+    \"url\": \"${REMOTE_4_URL}/app.js\",
+    \"appName\": \"reporting_hub_bop_positions_ui\"
   }
 ]" | jq '.' > /usr/share/nginx/html/remotes.json
 

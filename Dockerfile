@@ -3,7 +3,7 @@ WORKDIR /opt/reporting-hub-bop-shell
 ENV PATH /opt/reporting-hub-bop-shell/node_modules/.bin:$PATH
 
 # Install build dependencies
-RUN apk add --no-cache -t build-dependencies git make gcc g++ python libtool autoconf automake \
+RUN apk add --no-cache -t build-dependencies git make gcc g++ python3 libtool autoconf automake \
     && cd $(npm root -g)/npm \
     && npm config set unsafe-perm true \
     && npm install -g node-gyp
@@ -20,6 +20,10 @@ ENV REACT_APP_VERSION=$REACT_APP_VERSION
 
 ARG REACT_APP_COMMIT
 ENV REACT_APP_COMMIT=$REACT_APP_COMMIT
+
+# Public Path - Placeholder that is overwritten at runtime
+ARG PUBLIC_PATH
+ENV PUBLIC_PATH=__PUBLIC_PATH__
 
 # Build production application files
 RUN yarn build
