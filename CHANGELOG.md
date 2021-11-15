@@ -1,4 +1,15 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+## [2.0.0](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.8.1...v2.0.0) (2021-11-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* change public path, add new microfrontends, do housekeeping (#14)
+
+### Bug Fixes
+
+* change public path, add new microfrontends, do housekeeping ([#14](https://github.com/mojaloop/reporting-hub-bop-shell/issues/14)) ([bda1369](https://github.com/mojaloop/reporting-hub-bop-shell/commit/bda1369ffc2f678cdd29cafc61f4c61458ab582e))
+
 ### [1.8.1](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.8.0...v1.8.1) (2021-10-26)
 
 
