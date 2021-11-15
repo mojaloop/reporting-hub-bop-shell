@@ -45,23 +45,58 @@ module.exports = {
     port: config.DEV_PORT,
     host: '0.0.0.0',
     publicPath: '/',
+    // When microfrontends are consumed, requests originate from the shell.
+    // So for local testing we need to duplicate proxies for the services
+    // the microfrontends depend on. You can typically just copy/paste
+    // the proxies found in the remote microfrontend's `webpack.config.js`.
+    // This is only for local development.
     proxy: {
       '/api': {
         target: 'http://localhost',
         secure: false,
       },
-      '/role-api': {
-        target: 'http://localhost:3012',
+      // For local testing update `target` to point to your
+      // locally hosted or port-forwarded `role-assignment-service` service
+      '/role-assignment': {
+        target: 'http://localhost:port',
+        pathRewrite: { '^/role-assignment': '' },
+        secure: false,
+      },
+      '/central-settlements': {
+        // For local testing update `target` to point to your
+        // locally hosted or port-forwarded `central-settlements` service
+        target: 'http://localhost:port',
+        pathRewrite: { '^/central-settlements': '/v2' },
+        secure: false,
+      },
+      '/central-ledger': {
+        // For local testing update `target` to point to your
+        // locally hosted or port-forwarded `central-ledger` service
+        target: 'http://localhost:port',
+        pathRewrite: { '^/central-ledger': '' },
+        secure: false,
+      },
+      '/reporting-api': {
+        // For local testing update `target` to point to your
+        // locally hosted or port-forwarded `reporting-hub-bop-api-svc` service
+        target: 'http://localhost:port',
+        pathRewrite: { '^/reporting-api': '' },
+        secure: false,
+      },
+      '/kratos': {
+        // For local testing update `target` to point to your
+        // locally hosted or port-forwarded `@ory/oathkeeper` or `@ory/kratos` service
+        target: 'http://localhost:port/.ory/kratos/public',
+        pathRewrite: { '^/kratos': '' },
         secure: false,
       },
     },
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    // It automatically determines the public path from either
-    // `import.meta.url`, `document.currentScript`, `<script />`
-    // or `self.location`.
-    publicPath: 'auto',
+    // Do not use `auto` for publicPath.
+    // After testing, `auto` breaks nested routes.
+    publicPath: '/',
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
@@ -129,7 +164,7 @@ module.exports = {
     }),
     new EslintWebpackPlugin({
       extensions: ['ts', 'js', 'tsx', 'jsx'],
-      exclude: [`/node_modules/`],
+      exclude: ['node_modules'],
     }),
     new DotenvPlugin({
       systemvars: true,

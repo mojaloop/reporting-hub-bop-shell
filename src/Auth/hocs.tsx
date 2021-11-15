@@ -11,7 +11,7 @@ export function withAuth(App: ComponentType<AuthAppProps>) {
         doAuth();
       }
     }, []);
-    if (isAuthEnabled && isLoggedIn) {
+    if (!isAuthEnabled || isLoggedIn) {
       const authAppProps: AuthAppProps = {
         onLogoutClick,
         userEmail,

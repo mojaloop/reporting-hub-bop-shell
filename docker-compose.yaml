@@ -24,6 +24,8 @@ services:
       - REMOTE_MOCK_API=false
       - REMOTE_1_URL=http://localhost:8081
       - REMOTE_2_URL=http://localhost:8082
+      - REMOTE_3_URL=http://localhost:8083
+      - REMOTE_4_URL=http://localhost:8084
     ports:
       - "8080:8080"
     networks:

@@ -62,15 +62,6 @@ In the project root directory you can find the `webpack.config.js` configuration
 
 Code splitting is automatically enabled when using the _ModuleFederationPlugin_.
 
-#### Public Path
-
-In order to work, the microfrontend host has to specity the correct `output.publicPath`.
-
-The `publicPath` represents the URL where the host is expected to be accessed.
-
-To simplify the configuration, this is set using the `PUBLIC_PATH` environemnt variable.
-
-
 #### Module Federation Plugin
 
 At the plugins section, you can find the _ModuleFederationPlugin_.

@@ -37,7 +37,6 @@ The env variables responsible to add these values to the bundle are:
 docker build \
   --build-arg REACT_APP_VERSION=`npm run version --silent` \
   --build-arg REACT_APP_COMMIT=`git rev-parse HEAD`\
-  --build-arg PUBLIC_PATH=https://localhost:8080/\
   -t reporting-hub-bop-shell \
   .
 ```
