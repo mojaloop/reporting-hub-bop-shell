@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [2.0.1](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.0.0...v2.0.1) (2021-11-19)
+
+
+### Maintenance
+
+* fix script ([#15](https://github.com/mojaloop/reporting-hub-bop-shell/issues/15)) ([c6ad6c4](https://github.com/mojaloop/reporting-hub-bop-shell/commit/c6ad6c4bb8faf78dc197a25a19f66dbf857c1384))
+
 ## [2.0.0](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v1.8.1...v2.0.0) (2021-11-15)
 
 
