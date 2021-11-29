@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [2.0.2](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.0.1...v2.0.2) (2021-11-29)
+
+
+### Maintenance
+
+* rename microfrontends ([#16](https://github.com/mojaloop/reporting-hub-bop-shell/issues/16)) ([75a309b](https://github.com/mojaloop/reporting-hub-bop-shell/commit/75a309b2468bc1d0d81103974f5c37dd1c2a316f))
+
 ### [2.0.1](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.0.0...v2.0.1) (2021-11-19)
 
 
