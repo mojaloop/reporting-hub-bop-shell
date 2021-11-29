@@ -4,7 +4,7 @@
 echo "[
   {
     \"path\": \"/iam\",
-    \"label\": \"Roles Microfrontend\",
+    \"label\": \"Roles\",
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
     \"url\": \"${REMOTE_1_URL}/app.js\",
@@ -12,7 +12,7 @@ echo "[
   },
   {
     \"path\": \"/transfers\",
-    \"label\": \"Transfers Microfrontend\",
+    \"label\": \"Transfers\",
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
     \"url\": \"${REMOTE_2_URL}/app.js\",
