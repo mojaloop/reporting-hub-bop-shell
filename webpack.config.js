@@ -97,6 +97,9 @@ module.exports = {
     // Do not use `auto` for publicPath.
     // After testing, `auto` breaks nested routes.
     publicPath: '/',
+    // Hash files for cache busting
+    filename: '[name].[contenthash].js',
+    assetModuleFilename: "images/[hash][ext][query]",
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
