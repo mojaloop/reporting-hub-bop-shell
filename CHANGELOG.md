@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+## [2.1.0](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.0.2...v2.1.0) (2021-12-09)
+
+
+### Features
+
+* add cache busting webpack config ([#17](https://github.com/mojaloop/reporting-hub-bop-shell/issues/17)) ([d3befb9](https://github.com/mojaloop/reporting-hub-bop-shell/commit/d3befb9c4a8c59091077b697c6751dabb6f5416e))
+
 ### [2.0.2](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.0.1...v2.0.2) (2021-11-29)
 
 
