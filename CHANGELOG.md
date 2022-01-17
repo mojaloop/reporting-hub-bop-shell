@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [2.1.1](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.1.0...v2.1.1) (2022-01-17)
+
+
+### Maintenance
+
+* **deps:** bump follow-redirects from 1.14.3 to 1.14.7 ([#18](https://github.com/mojaloop/reporting-hub-bop-shell/issues/18)) ([e45ba95](https://github.com/mojaloop/reporting-hub-bop-shell/commit/e45ba9509757f35126dbac0731f60353bacf6632))
+
 ## [2.1.0](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.0.2...v2.1.0) (2021-12-09)
 
 
