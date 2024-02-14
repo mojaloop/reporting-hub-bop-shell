@@ -11,6 +11,7 @@ export type ApiConfig = {
 
 export interface AuthConfig {
   loginEndpoint: string;
+  loginProvider: string;
   logoutEndpoint: string;
   authTokenEndpoint: string;
   isAuthEnabled: boolean;

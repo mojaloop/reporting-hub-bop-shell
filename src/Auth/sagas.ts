@@ -8,14 +8,67 @@ import { LoggedUser } from './types';
 
 function* doAuth() {
   try {
-    // @ts-ignore
-    const response = yield call(api.whoami.read) as MakeResponse<LoggedUser>;
+    let response: MakeResponse<LoggedUser>;
+    try {
+      response = yield call(api.whoami.read);
+    } catch (error) {
+      response = error.response;
+      if (!response) throw error;
+    }
     const { data, status } = response;
 
     if (is200(status)) {
       yield put(actions.doAuthSuccess(data));
     } else if (is401(status)) {
-      window.location.href = yield select(selectors.getLoginEndpoint);
+      const loginProvider: string = yield select(selectors.getLoginProvider);
+      const loginEndpoint: string = yield select(selectors.getLoginEndpoint);
+      const loginUrl: string = `${loginEndpoint}?return_to=${window.location.href}`;
+      if (loginProvider) {
+        const loginResult: string = yield call(async () => {
+          try {
+            // obtain login flow
+            const {
+              ui: { method, action, nodes },
+            } = await (await fetch(loginUrl, { headers: { accept: 'application/json' } })).json();
+            const form = document.createElement('form');
+            form.method = method;
+            form.action = action;
+            let submit: HTMLInputElement | undefined;
+
+            nodes.forEach(
+              ({
+                attributes: { type, name, node_type, value },
+              }: {
+                attributes: Record<string, string>;
+              }) => {
+                if (name === 'provider' && value !== loginProvider) return;
+                const element = document.createElement(node_type) as HTMLInputElement;
+                if (name === 'provider') submit = element;
+                element.type = type;
+                element.value = value;
+                element.name = name;
+                form.appendChild(element);
+              },
+            );
+
+            if (submit) {
+              document.body.appendChild(form);
+              submit.click();
+            } else {
+              window.location.assign(loginUrl);
+            }
+          } catch (error) {
+            console.error(error);
+            return 'Currently unable to perform authentication. Please try again later';
+          }
+          return '';
+        });
+        if (loginResult) {
+          yield put(actions.doAuthFailed(loginResult));
+        }
+      } else {
+        window.location.href = loginUrl;
+      }
     } else {
       yield put(
         actions.doAuthFailed(
@@ -23,7 +76,8 @@ function* doAuth() {
         ),
       );
     }
-  } catch (e) {
+  } catch (error) {
+    console.error(error);
     yield put(
       actions.doAuthFailed('Currently unable to perform authentication. Please try again later'),
     );

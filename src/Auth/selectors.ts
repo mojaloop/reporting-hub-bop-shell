@@ -3,6 +3,7 @@ import { State } from 'store';
 
 export const getIsAuthEnabled = (state: State) => state.config.auth.isAuthEnabled;
 export const getLoginEndpoint = (state: State) => state.config.auth.loginEndpoint;
+export const getLoginProvider = (state: State) => state.config.auth.loginProvider;
 export const getLogoutEndpoint = (state: State) => state.config.auth.logoutEndpoint;
 export const getAuthTokenEndpoint = (state: State) => state.config.auth.authTokenEndpoint;
 
