@@ -6,6 +6,7 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
   // Using the same protocol as we've been loaded from to avoid Mixed Content error.
   const defaults = {
     loginEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/login`,
+    loginProvider: '',
     logoutEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/logout/browser`,
     authTokenEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/sessions/whoami`,
     isAuthEnabled: process.env.REACT_APP_AUTH_ENABLED !== 'false',
@@ -26,12 +27,16 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
       REMOTE_MOCK_API,
       AUTH_ENABLED,
       LOGIN_URL,
+      LOGIN_PROVIDER,
       LOGOUT_URL,
       AUTH_TOKEN_URL,
     } = await fetch(`${baseUrl}/config.json`).then((response) => response.json());
 
     if (LOGIN_URL !== undefined) {
       config.loginEndpoint = LOGIN_URL;
+    }
+    if (LOGIN_PROVIDER !== undefined) {
+      config.loginProvider = LOGIN_PROVIDER;
     }
     if (LOGOUT_URL !== undefined) {
       config.logoutEndpoint = LOGOUT_URL;

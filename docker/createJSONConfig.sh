@@ -8,6 +8,7 @@ echo "{
   \"REMOTE_MOCK_API\": \"${REMOTE_MOCK_API}\",
   \"AUTH_ENABLED\": \"${AUTH_ENABLED}\",
   \"LOGIN_URL\": \"${LOGIN_URL}\",
+  \"LOGIN_PROVIDER\": \"${LOGIN_PROVIDER}\",
   \"LOGOUT_URL\": \"${LOGOUT_URL}\",
   \"AUTH_TOKEN_URL\": \"${AUTH_TOKEN_URL}\"
 }" | jq '.' > /usr/share/nginx/html/config.json

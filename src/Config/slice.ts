@@ -14,6 +14,7 @@ export const initialState: ConfigState = {
   auth: {
     authTokenEndpoint: '',
     loginEndpoint: '',
+    loginProvider: '',
     logoutEndpoint: '',
     isAuthEnabled: true,
   },

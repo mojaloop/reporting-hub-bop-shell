@@ -26,6 +26,7 @@ The application is driven by some environment variables used at build and runtim
 |---|---|
 | `API_BASE_URL` | base path for api (could be a URL) |
 | `LOGIN_URL` | where to redirect for login |
+| `LOGIN_PROVIDER` | enable automatic redirect to Kratos provider |
 | `LOGOUT_URL` | where to redirect for logout |
 | `MOCK_API` | enable mocking api |
 | `AUTH_ENABLED` | enable auth |
