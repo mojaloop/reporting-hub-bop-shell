@@ -1,4 +1,6 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [2.2.1](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.1.1...v2.2.1) (2024-02-14)
+
 ### [2.1.1](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.1.0...v2.1.1) (2022-01-17)
 
 
