@@ -18,7 +18,7 @@ const config = {
 
 module.exports = {
   entry: './src/index',
-  devtool: 'cheap-module-source-map',
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
     disableHostCheck: true,
     // Enable gzip compression of generated files.
@@ -86,7 +86,7 @@ module.exports = {
       '/kratos': {
         // For local testing update `target` to point to your
         // locally hosted or port-forwarded `@ory/oathkeeper` or `@ory/kratos` service
-        target: 'http://localhost:port/.ory/kratos/public',
+        target: 'http://localhost:4433',
         pathRewrite: { '^/kratos': '' },
         secure: false,
       },
