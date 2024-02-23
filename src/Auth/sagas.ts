@@ -86,16 +86,12 @@ function* doAuth() {
 
 function* logout() {
   const logoutEndpoint: string = yield select(selectors.getLogoutEndpoint);
-  const loginProvider: string = yield select(selectors.getLoginProvider);
-  if (loginProvider) {
-    fetch(logoutEndpoint, { headers: { accept: 'application/json' } })
-      .then((response) => response.json())
-      .then((jsonResponse) => {
-        window.location.assign(`${jsonResponse.logout_url}&return_to=${window.location.href}`);
-      });
-  } else {
-    window.location.assign(`${logoutEndpoint}?return_to=${window.location.href}`);
-  }
+  const logoutUrl: string = `${logoutEndpoint}?return_to=${window.location.href}`;
+  fetch(logoutUrl, { headers: { accept: 'application/json' } })
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      window.location.assign(jsonResponse.logout_url);
+    });
 }
 
 function* doAuthSaga() {
