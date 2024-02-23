@@ -86,7 +86,12 @@ function* doAuth() {
 
 function* logout() {
   const logoutEndpoint: string = yield select(selectors.getLogoutEndpoint);
-  window.location.href = logoutEndpoint;
+  const logoutUrl: string = `${logoutEndpoint}?return_to=${window.location.href}`;
+  fetch(logoutUrl, { headers: { accept: 'application/json' } })
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      window.location.assign(jsonResponse.logout_url);
+    });
 }
 
 function* doAuthSaga() {

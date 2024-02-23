@@ -28,6 +28,7 @@ async function boot() {
           remoteMockApi: config.remoteMockApi,
         },
         auth: {
+          loginProvider: config.loginProvider,
           loginEndpoint: config.loginEndpoint,
           logoutEndpoint: config.logoutEndpoint,
           authTokenEndpoint: config.authTokenEndpoint,

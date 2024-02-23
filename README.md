@@ -73,3 +73,30 @@ For more details read [configuring the tools](./docs/configuring-the-tools.md).
 - [Configuring the tools](./docs/configuring-the-tools.md)
 - [Environment variables](./docs/environment-variables.md)
 - [External API](./docs/external-api.md)
+
+## Local testing with Ory and Keycloak
+
+- Run dependencies with the following command
+```
+docker compose --profile ory up -d
+```
+- Wait for all the containers become healthy.
+- Set a host recording in `/etc/hosts` file for keycloak
+```
+127.0.0.1 keycloak
+```
+- Add a user in keycloak using admin console
+  - Open the URL http://127.0.0.1:8080/ (Administration Console)
+  - Login with `admin` and `admin`
+  - Select realm `test-realm` on top left
+  - Go to users and create a new user by entering the following details
+    - Username
+    - Email
+    - First name
+    - Last name
+    - Password in credentials
+- Run application using `yarn run start`
+- Open browser on `http://127.0.0.1:3010/` (Note: do not use localhost due to some issues with redirection and cookies)
+- It redirects to the keycloak login page
+- Login with the new user created
+- Then it should return back to the portal

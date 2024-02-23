@@ -5,10 +5,10 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
   const baseUrl = `${protocol}//${host}`;
   // Using the same protocol as we've been loaded from to avoid Mixed Content error.
   const defaults = {
-    loginEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/login`,
-    loginProvider: '',
-    logoutEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/self-service/logout/browser`,
-    authTokenEndpoint: `${process.env.REACT_APP_AUTH_API_BASE_URL}/sessions/whoami`,
+    loginEndpoint: `${process.env.REACT_APP_LOGIN_URL}`,
+    loginProvider: `${process.env.REACT_APP_LOGIN_PROVIDER}`,
+    logoutEndpoint: `${process.env.REACT_APP_LOGOUT_URL}`,
+    authTokenEndpoint: `${process.env.REACT_APP_AUTH_TOKEN_URL}`,
     isAuthEnabled: process.env.REACT_APP_AUTH_ENABLED !== 'false',
     basename: baseUrl,
     authApiBaseUrl: `${process.env.REACT_APP_AUTH_API_BASE_URL}`,
