@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [2.2.3](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.2.2...v2.2.3) (2024-02-26)
+
+
+### Bug Fixes
+
+* return_to url for logout ([#38](https://github.com/mojaloop/reporting-hub-bop-shell/issues/38)) ([36563fb](https://github.com/mojaloop/reporting-hub-bop-shell/commit/36563fba5c3e0666fa20b83890d542b8e05dfd9d))
+
 ### [2.2.2](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.2.1...v2.2.2) (2024-02-23)
 
 
