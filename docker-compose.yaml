@@ -21,9 +21,9 @@ services:
       - AUTH_TOKEN_URL=http://127.0.0.1:4455/.ory/kratos/public/sessions/whoami
       - AUTH_ENABLED=true
       - AUTH_API_BASE_URL=/
-      - AUTH_MOCK_API=false
+      - AUTH_MOCK_API=true
       - REMOTE_API_BASE_URL=/
-      - REMOTE_MOCK_API=false
+      - REMOTE_MOCK_API=true
       - REMOTE_1_URL=http://localhost:8081
       - REMOTE_2_URL=http://localhost:8082
       - REMOTE_3_URL=http://localhost:8083

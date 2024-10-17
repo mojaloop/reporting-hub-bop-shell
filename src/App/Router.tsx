@@ -7,6 +7,7 @@ import Loader from 'utils/loader';
 import Menu from './Menu';
 import { Remote } from './types';
 
+
 function getRoutes(remotes: Remote[], authConfig: AuthConfig) {
   return remotes.map(({ path, appComponent, url, appName }) => {
     return (
@@ -29,20 +30,28 @@ interface HomeRouteProps {
 }
 function HomeRoute({ remotes }: HomeRouteProps) {
   return (
-    <>
-      <Heading size="3">This is your home route</Heading>
-      <br />
-      <br />
-      <Text>The api /api/remotes returned {remotes.length} remote apps</Text>
-      <br />
-      <br />
-      <Text>The config is the following</Text>
-      <code>
-        <pre style={{ background: '#eee', borderRadius: 5, padding: 10 }}>
-          {JSON.stringify(remotes, null, 2)}
-        </pre>
-      </code>
-    </>
+    <div className="home-route-container">
+      <div className="home-heading">
+        {/* add configuration to display DRPP name */}
+        <h3>Welcome to the DRPP <strong>{remotes.length}</strong> Finance Portal</h3>
+      </div>
+
+      <div className="home-text">
+        <p>
+          {/* add configuration to display DRPP name */}
+         {/* Supporting business operations in DRPP <strong>{remotes.length}</strong>  */}
+         {/* instant lowcost, cross boarder payments supporting regional trade  */}
+
+          Accelarating regional trade through supporting cross boarder, instant lowcost, payments and transfers.
+        </p>
+      </div>
+
+      {/* <div className="home-config">
+        <p>The configuration details are as follows:</p>
+        <pre className="config-details">{JSON.stringify(remotes, null, 2)}</pre>
+      </div> */}
+      
+    </div>
   );
 }
 

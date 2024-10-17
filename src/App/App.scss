@@ -14,8 +14,8 @@
     width: 100%;
     user-select: none;
     height: 55px;
-    background: #00a3ff;
-    border-bottom: 5px solid #fde74c;
+    background: #911414;
+    border-bottom: 5px solid #080700;
     background-image: url('/public/hero-bg-interior.png');
     background-position: center center;
     background-repeat: no-repeat;
@@ -29,14 +29,30 @@
   }
 
   .rc-layout__navbar__logo {
-    background-image: url('/public/mojaloop-white.png');
-    background-size: 141px 45px;
+    // background-image: url('/public/mojaloop-white.png');
+    background-image: url('/public/comesa-white.png');
+    // background-size: 141px 45px;
+    //background-size: contain;
+    background-size: 141px 60px;
+    background-repeat: no-repeat;
     width: 141px;
-    height: 45px;
+    // height: 45px;
+    height: 60px;
     margin-left: 10px;
     margin-top: 5px;
     position: absolute;
   }
+}
+.home-route-container {
+  background-image: url('/public/bgbody-transparent.svg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  // height: 1vh;
+  padding: 20px;
+  // opacity: 0.8;
+  // z-index: 1;
+  // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeInNavbar {
@@ -61,4 +77,27 @@
     transform: translateX(0%);
     opacity: 1;
   }
+}
+
+.home-heading h3 {
+  color: #911414; /* Change to your specified blue color */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-text {
+  text-align: center;
+  color: #34495e; /* This color remains unchanged, but can be modified if desired */
+  margin-bottom: 20px;
+}
+
+/* If there are other headings you want to change, you might want to add similar rules */
+.home-config p {
+  font-size: 16px;
+  color: #34495e; /* Adjust this color as needed */
+}
+
+/* Optional: If you have other headings, like h2 or h1, you can apply the same color */
+.home-heading h2, .home-heading h1 {
+  color: #911414; /* Apply the blue color to these headings as well */
 }
