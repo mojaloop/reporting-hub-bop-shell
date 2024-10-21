@@ -7,7 +7,6 @@ import Loader from 'utils/loader';
 import Menu from './Menu';
 import { Remote } from './types';
 
-
 function getRoutes(remotes: Remote[], authConfig: AuthConfig) {
   return remotes.map(({ path, appComponent, url, appName }) => {
     return (
@@ -33,24 +32,18 @@ function HomeRoute({ remotes }: HomeRouteProps) {
     <div className="home-route-container">
       <div className="home-heading">
         {/* add configuration to display DRPP name */}
-        <h3>Welcome to the DRPP <strong>{remotes.length}</strong> Finance Portal</h3>
+
+        <h3>Welcome to the {process.env.REACT_APP_TITLE || 'Mojaloops Finance Portal'}</h3>
       </div>
 
       <div className="home-text">
-        <p>
-          {/* add configuration to display DRPP name */}
-         {/* Supporting business operations in DRPP <strong>{remotes.length}</strong>  */}
-         {/* instant lowcost, cross boarder payments supporting regional trade  */}
-
-          Accelarating regional trade through supporting cross boarder, instant lowcost, payments and transfers.
-        </p>
+        <p>{process.env.REACT_APP_SUBTITLE || 'Mojaloops slogan'}</p>
       </div>
 
       {/* <div className="home-config">
         <p>The configuration details are as follows:</p>
         <pre className="config-details">{JSON.stringify(remotes, null, 2)}</pre>
       </div> */}
-      
     </div>
   );
 }

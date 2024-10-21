@@ -15,10 +15,13 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     authMockApi: process.env.REACT_APP_AUTH_MOCK_API === 'true',
     remoteApiBaseUrl: `${process.env.REACT_APP_REMOTE_API_BASE_URL}`,
     remoteMockApi: process.env.REACT_APP_REMOTE_MOCK_API === 'true',
+    ui: `${process.env.REACT_APP_TITLE}`,
+    ui_subtext: `${process.env.REACT_APP_SUBTITLE}`,
+    ui_scss: `${process.env.REACT_APP_SCSS}`,
+    ui_dfsp_img: `${process.env.REACT_APP_DFSP_IMG}`,
   };
 
   const config = { ...defaults };
-
   try {
     const {
       AUTH_API_BASE_URL,
@@ -30,10 +33,17 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
       LOGIN_PROVIDER,
       LOGOUT_URL,
       AUTH_TOKEN_URL,
+      REACT_APP_TITLE,
+      REACT_APP_SUBTITLE,
+      REACT_APP_SCSS,
+      REACT_APP_DFSP_IMG,
     } = await fetch(`${baseUrl}/config.json`).then((response) => response.json());
 
     if (LOGIN_URL !== undefined) {
       config.loginEndpoint = LOGIN_URL;
+    }
+    if (REACT_APP_TITLE !== undefined) {
+      config.ui = REACT_APP_TITLE;
     }
     if (LOGIN_PROVIDER !== undefined) {
       config.loginProvider = LOGIN_PROVIDER;
@@ -61,6 +71,13 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     if (AUTH_ENABLED !== undefined) {
       config.isAuthEnabled = AUTH_ENABLED !== 'false';
     }
+    if (REACT_APP_SUBTITLE !== undefined) {
+      config.ui_subtext = REACT_APP_SUBTITLE;
+    }
+    if (REACT_APP_SCSS !== undefined) {
+      config.ui_scss = REACT_APP_SCSS;
+    }
+    if (REACT_APP_DFSP_IMG !== undefined) config.ui_dfsp_img = REACT_APP_DFSP_IMG;
   } catch (err) {
     // eslint-disable-next-line
     console.info('config returned error', err);

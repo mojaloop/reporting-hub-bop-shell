@@ -8,7 +8,7 @@ volumes:
 
 services:
   reporting-hub-bop-shell:
-    profiles: ["shell"]
+    profiles: ['shell']
     container_name: reporting-hub-bop-shell
     image: mojaloop/reporting-hub-bop-shell
     build:
@@ -28,8 +28,9 @@ services:
       - REMOTE_2_URL=http://localhost:8082
       - REMOTE_3_URL=http://localhost:8083
       - REMOTE_4_URL=http://localhost:8084
+      - REACT_APP_TITLE=COMESA FinancePortal
     ports:
-      - "8080:8080"
+      - '8080:8080'
     networks:
       - mojaloop-net
     healthcheck:
@@ -39,7 +40,7 @@ services:
       interval: 15s
 
   kratos-migrate:
-    profiles: ["ory"]
+    profiles: ['ory']
     image: oryd/kratos:v1.1.0
     restart: on-failure
     command: -c /etc/config/kratos/kratos.yml migrate sql -e --yes
@@ -56,7 +57,7 @@ services:
     networks:
       - mojaloop-net
   kratos:
-    profiles: ["ory"]
+    profiles: ['ory']
     depends_on:
       - kratos-migrate
     image: oryd/kratos:v1.1.0
@@ -81,7 +82,7 @@ services:
       - mojaloop-net
 
   mailslurper:
-    profiles: ["ory"]
+    profiles: ['ory']
     image: 'oryd/mailslurper:latest-smtps'
     ports:
       - '4436:4436'
@@ -95,12 +96,12 @@ services:
     container_name: keycloak
     command: ['start-dev --import-realm']
     ports:
-      - "8080:8080"
+      - '8080:8080'
     depends_on:
       mysql-keycloak:
         condition: service_healthy
     volumes:
-       - ./docker/keycloak/realm-export.json:/opt/keycloak/data/import/realm.json
+      - ./docker/keycloak/realm-export.json:/opt/keycloak/data/import/realm.json
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
@@ -113,7 +114,11 @@ services:
     networks:
       - mojaloop-net
     healthcheck:
-      test: ["CMD-SHELL", "exec 3<>/dev/tcp/127.0.0.1/8080;echo -e \"GET /health/ready HTTP/1.1\r\nhost: http://localhost\r\nConnection: close\r\n\r\n\" >&3;grep \"HTTP/1.1 200 OK\" <&3"]
+      test:
+        [
+          'CMD-SHELL',
+          "exec 3<>/dev/tcp/127.0.0.1/8080;echo -e \"GET /health/ready HTTP/1.1\r\nhost: http://localhost\r\nConnection: close\r\n\r\n\" >&3;grep \"HTTP/1.1 200 OK\" <&3",
+        ]
       timeout: 20s
       retries: 10
       start_period: 40s
@@ -123,13 +128,13 @@ services:
     image: mysql:8.3.0
     container_name: mysql-keycloak
     ports:
-      - "3306:3306"
+      - '3306:3306'
     environment:
       - MYSQL_DATABASE=keycloak
       - MYSQL_USER=keycloak
       - MYSQL_PASSWORD=password
       - MYSQL_ROOT_PASSWORD=root_password
     healthcheck:
-      test: "mysqladmin ping -u root -p$${MYSQL_ROOT_PASSWORD}"
+      test: 'mysqladmin ping -u root -p$${MYSQL_ROOT_PASSWORD}'
     networks:
       - mojaloop-net

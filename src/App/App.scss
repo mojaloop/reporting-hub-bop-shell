@@ -29,26 +29,37 @@
   }
 
   .rc-layout__navbar__logo {
-    // background-image: url('/public/mojaloop-white.png');
     background-image: url('/public/comesa-white.png');
-    // background-size: 141px 45px;
-    //background-size: contain;
     background-size: 141px 60px;
     background-repeat: no-repeat;
     width: 141px;
-    // height: 45px;
     height: 60px;
     margin-left: 10px;
     margin-top: 5px;
     position: absolute;
   }
+
+  .rc-layout__navbar__logo {
+    background-image: url('/public/comesa-white.png');
+    background-size: 126px 45px;
+    background-repeat: no-repeat;
+    width: 126px;
+    height: 45px;
+    margin-right: 10px;
+    margin-top: 5px;
+    position: absolute;
+  }
+
+  .navbar__email-icon {
+    width: 50px;
+    height: 50px;
+  }
 }
 .home-route-container {
-  background-image: url('/public/bgbody-transparent.svg');
+  background-image: url('/public/bg-body-transparent.png');
   background-size: cover;
   background-position: center;
   height: 100vh;
-  // height: 1vh;
   padding: 20px;
   // opacity: 0.8;
   // z-index: 1;
@@ -98,6 +109,13 @@
 }
 
 /* Optional: If you have other headings, like h2 or h1, you can apply the same color */
-.home-heading h2, .home-heading h1 {
+.home-heading h2,
+.home-heading h1 {
   color: #911414; /* Apply the blue color to these headings as well */
+}
+
+.navbar__user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust space between email and icon */
 }
