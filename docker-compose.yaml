@@ -9,12 +9,12 @@ volumes:
 services:
   reporting-hub-bop-shell:
     profiles: ['shell']
-    container_name: reporting-hub-bop-shell
-    image: mojaloop/reporting-hub-bop-shell
+    container_name: reporting-hub-bop-shell-one
+    image: reporting-hub-bop-shell-one:latest
     build:
       context: .
-      cache_from:
-        - mojaloop/reporting-hub-bop-shell
+      # cache_from:
+      #   - mojaloop/reporting-hub-bop-shell
     environment:
       - LOGIN_URL=http://127.0.0.1:4455/.ory/kratos/public/self-service/login
       - LOGOUT_URL=http://127.0.0.1:4455/.ory/kratos/public/self-service/logout/browser
@@ -22,15 +22,15 @@ services:
       - AUTH_ENABLED=true
       - AUTH_API_BASE_URL=/
       - AUTH_MOCK_API=true
-      - REMOTE_API_BASE_URL=/
+      - REMOTE_API_BASE_URL=/docker
       - REMOTE_MOCK_API=true
       - REMOTE_1_URL=http://localhost:8081
       - REMOTE_2_URL=http://localhost:8082
       - REMOTE_3_URL=http://localhost:8083
       - REMOTE_4_URL=http://localhost:8084
-      - REACT_APP_TITLE=COMESA FinancePortal
+      - REACT_APP_TITLE= COMESA FinancePortal
     ports:
-      - '8080:8080'
+      - '8082:8080'
     networks:
       - mojaloop-net
     healthcheck:

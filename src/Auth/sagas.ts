@@ -58,7 +58,6 @@ function* doAuth() {
               window.location.assign(loginUrl);
             }
           } catch (error) {
-            console.error(error);
             return 'Currently unable to perform authentication. Please try again later';
           }
           return '';
@@ -77,7 +76,6 @@ function* doAuth() {
       );
     }
   } catch (error) {
-    console.error(error);
     yield put(
       actions.doAuthFailed('Currently unable to perform authentication. Please try again later'),
     );

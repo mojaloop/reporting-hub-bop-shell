@@ -3,6 +3,7 @@ import { Layout, MessageBox, Spinner } from 'components';
 import Router from './Router';
 import appConnector, { AppProps } from './connectors';
 import { Remote } from './types';
+import './default_App.scss';
 
 function App({ userEmail, onMount, remotes, logout }: AppProps) {
   useEffect(() => {
@@ -10,16 +11,9 @@ function App({ userEmail, onMount, remotes, logout }: AppProps) {
 
     const scssPath = process.env.REACT_APP_SCSS;
     document.title = process.env.REACT_APP_TITLE || 'Mojaloop Finance Portal';
-    console.log(process.env.REACT_APP_TITLE);
 
     if (scssPath) {
-      import(`${scssPath}`)
-        .then(() => {
-          console.log('SCSS file loaded successfully');
-        })
-        .catch((error) => {
-          console.error('Error loading SCSS file:', error);
-        });
+      import(`${scssPath}`).then(() => {}).catch(() => {});
     }
   }, [onMount]);
 
@@ -41,7 +35,7 @@ function App({ userEmail, onMount, remotes, logout }: AppProps) {
         onUsernameClick={logout}
       >
         <div className="navbar__user-info">
-          <img src={process.env.REACT_APP_DFSP_IMG} className="navbar__email-icon" />
+          <img src={process.env.REACT_APP_DFSP_IMG} className="navbar__email-icon" alt="" />
         </div>
 
         <div className="rc-layout__navbar__logo" />

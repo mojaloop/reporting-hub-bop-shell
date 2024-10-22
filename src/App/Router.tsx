@@ -1,5 +1,5 @@
 import React from 'react';
-import { Column, Heading, Icon, Layout, Row, Text } from 'components';
+import { Column, Heading, Icon, Layout, Row } from 'components';
 import { Switch, Route } from 'react-router-dom';
 import EmotionLessIcon from 'bootstrap-icons/icons/emoji-expressionless.svg';
 import { useAuthConfig, AuthConfig } from 'Config';
@@ -37,13 +37,18 @@ function HomeRoute({ remotes }: HomeRouteProps) {
       </div>
 
       <div className="home-text">
-        <p>{process.env.REACT_APP_SUBTITLE || 'Mojaloops slogan'}</p>
+        <p>{process.env.REACT_APP_SUBTITLE || 'Inclusive, equitable financial services for all'}</p>
       </div>
 
-      {/* <div className="home-config">
-        <p>The configuration details are as follows:</p>
-        <pre className="config-details">{JSON.stringify(remotes, null, 2)}</pre>
-      </div> */}
+      {process.env.REACT_APP_TITLE == null && (
+        <div className="home-config">
+          <br />
+          <p>The configuration details are as follows:</p>
+          <code>
+            <pre className="config-details">{JSON.stringify(remotes, null, 2)}</pre>
+          </code>
+        </div>
+      )}
     </div>
   );
 }

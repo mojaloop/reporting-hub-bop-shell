@@ -61,9 +61,9 @@
   background-position: center;
   height: 100vh;
   padding: 20px;
-  // opacity: 0.8;
-  // z-index: 1;
-  // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+  z-index: 1;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeInNavbar {
@@ -91,31 +91,29 @@
 }
 
 .home-heading h3 {
-  color: #911414; /* Change to your specified blue color */
+  color: #911414;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .home-text {
   text-align: center;
-  color: #34495e; /* This color remains unchanged, but can be modified if desired */
+  color: #34495e;
   margin-bottom: 20px;
 }
 
-/* If there are other headings you want to change, you might want to add similar rules */
 .home-config p {
   font-size: 16px;
-  color: #34495e; /* Adjust this color as needed */
+  color: #34495e;
 }
 
-/* Optional: If you have other headings, like h2 or h1, you can apply the same color */
 .home-heading h2,
 .home-heading h1 {
-  color: #911414; /* Apply the blue color to these headings as well */
+  color: #911414;
 }
 
 .navbar__user-info {
   display: flex;
   align-items: center;
-  gap: 10px; /* Adjust space between email and icon */
+  gap: 10px;
 }
