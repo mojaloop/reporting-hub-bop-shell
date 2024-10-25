@@ -3,7 +3,7 @@ import { Layout, MessageBox, Spinner } from 'components';
 import Router from './Router';
 import appConnector, { AppProps } from './connectors';
 import { Remote } from './types';
-import './default_App.scss';
+import './default_App copy.css';
 
 function App({ userEmail, onMount, remotes, logout }: AppProps) {
   useEffect(() => {
