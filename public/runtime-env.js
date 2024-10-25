@@ -4,4 +4,5 @@ window.shellEnv = {
   REMOTE_2_URL: '__REMOTE_2_URL__',
   REMOTE_3_URL: '__REMOTE_3_URL__',
   REMOTE_4_URL: '__REMOTE_4_URL__',
+  REACT_APP_TITLE: '__REACT_APP_TITLE__',
 };

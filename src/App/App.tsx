@@ -3,14 +3,18 @@ import { Layout, MessageBox, Spinner } from 'components';
 import Router from './Router';
 import appConnector, { AppProps } from './connectors';
 import { Remote } from './types';
-import './default_App copy.css';
+import './default_App.scss';
 
 function App({ userEmail, onMount, remotes, logout }: AppProps) {
   useEffect(() => {
     onMount();
+    const appTitle = window.shellEnv.REACT_APP_TITLE || 'Default App Title';
+    // const appTitle = process.env.NODE_ENV === 'production' ? window.env.REACT_APP_TITLE : process.env.REACT_APP_TITLE;
+    // document.title = appTitle || "Default Title";
 
     const scssPath = process.env.REACT_APP_SCSS;
-    document.title = process.env.REACT_APP_TITLE || 'Mojaloop Finance Portal';
+    // document.title = process.env.REACT_APP_TITLE || 'Mojaloop Finance Portal';
+    document.title = appTitle;
 
     if (scssPath) {
       import(`${scssPath}`).then(() => {}).catch(() => {});

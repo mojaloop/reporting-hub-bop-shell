@@ -19,6 +19,7 @@ The application is driven by some environment variables used at build and runtim
 | `REACT_APP_MOCK_API` |  enables mock api locally | true | V | ? |
 | `DEV_PORT` | webpack server dev http port | 3001 | V |   |
 | `REMOTE_1_URL` | where to load the app 1 | http://localhost:3012 | V | V |
+| `REACT_APP_TITLE` | load title | V | V |
 
 ### Docker Only Environment Variables
 
@@ -30,3 +31,4 @@ The application is driven by some environment variables used at build and runtim
 | `LOGOUT_URL` | where to redirect for logout |
 | `MOCK_API` | enable mocking api |
 | `AUTH_ENABLED` | enable auth |
+

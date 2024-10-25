@@ -8,7 +8,8 @@ echo "[
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
     \"url\": \"${REMOTE_1_URL}/app.js\",
-    \"appName\": \"reporting_hub_bop_role_ui\"
+    \"appName\": \"reporting_hub_bop_role_ui\",
+    \"cssUrl\": \"${REACT_APP_SCSS}\"
   },
   {
     \"path\": \"/transfers\",
@@ -16,7 +17,8 @@ echo "[
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
     \"url\": \"${REMOTE_2_URL}/app.js\",
-    \"appName\": \"reporting_hub_bop_trx_ui\"
+    \"appName\": \"reporting_hub_bop_trx_ui\",
+    \"cssUrl\": \"${REACT_APP_SCSS}\"
   },
   {
     \"path\": \"/settlements\",
@@ -24,7 +26,8 @@ echo "[
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
     \"url\": \"${REMOTE_3_URL}/app.js\",
-    \"appName\": \"reporting_hub_bop_settlements_ui\"
+    \"appName\": \"reporting_hub_bop_settlements_ui\",
+    \"cssUrl\": \"${REACT_APP_SCSS}\"
   },
   {
     \"path\": \"/positions\",
@@ -32,7 +35,8 @@ echo "[
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
     \"url\": \"${REMOTE_4_URL}/app.js\",
-    \"appName\": \"reporting_hub_bop_positions_ui\"
+    \"appName\": \"reporting_hub_bop_positions_ui\",
+    \"cssUrl\": \"${REACT_APP_SCSS}\"
   }
 ]" | jq '.' > /usr/share/nginx/html/remotes.json
 

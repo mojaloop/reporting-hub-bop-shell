@@ -10,7 +10,9 @@ services:
   reporting-hub-bop-shell:
     profiles: ['shell']
     container_name: reporting-hub-bop-shell-one
+    # container_name: reporting-hub-bop-shell
     image: reporting-hub-bop-shell-one:latest
+    # image: reporting-hub-bop-shell
     build:
       context: .
       # cache_from:
@@ -28,8 +30,8 @@ services:
       - REMOTE_2_URL=http://localhost:8082
       - REMOTE_3_URL=http://localhost:8083
       - REMOTE_4_URL=http://localhost:8084
-      - REACT_APP_TITLE="COMESA Finance Portal"
-      - REACT_APP_SUBTITLE="Accelarating regional trade through supporting cross boarder, instant lowcost, payments and transfers."
+      - REACT_APP_TITLE=COMESA Finance Portal
+      - REACT_APP_SUBTITLE=Accelarating regional trade through supporting cross boarder, instant lowcost, payments and transfers.
       - REACT_APP_SCSS=./Appcopy.css
       - REACT_APP_DFSP_IMG=https://www.zambiaembassy.org/sites/default/files/photos/Zambia_flag-1000px.jpg
 
