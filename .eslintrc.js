@@ -25,6 +25,7 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', { 'varsIgnorePattern': '^Window$' }],
     'prettier/prettier': [
       'error',
       {

@@ -19,6 +19,7 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     ui_subtext: `${process.env.REACT_APP_SUBTITLE}`,
     ui_scss: `${process.env.REACT_APP_SCSS}`,
     ui_dfsp_img: `${process.env.REACT_APP_DFSP_IMG}`,
+    ui_test: `${process.env.TEST_TEXT}`,
   };
 
   const config = { ...defaults };
@@ -37,6 +38,7 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
       REACT_APP_SUBTITLE,
       REACT_APP_SCSS,
       REACT_APP_DFSP_IMG,
+      TEST_TEXT,
     } = await fetch(`${baseUrl}/config.json`).then((response) => response.json());
 
     if (LOGIN_URL !== undefined) {
@@ -76,6 +78,9 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     }
     if (REACT_APP_SCSS !== undefined) {
       config.ui_scss = REACT_APP_SCSS;
+    }
+    if (TEST_TEXT !== undefined) {
+      config.ui_test = TEST_TEXT;
     }
     if (REACT_APP_DFSP_IMG !== undefined) config.ui_dfsp_img = REACT_APP_DFSP_IMG;
   } catch (err) {
