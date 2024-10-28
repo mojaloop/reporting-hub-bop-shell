@@ -8,7 +8,4 @@ window.shellEnv = {
   REACT_APP_SUBTITLE:'__REACT_APP_SUBTITLE__',
   REACT_APP_SCSS:'__REACT_APP_SCSS__',
   REACT_APP_DFSP_IMG:'__REACT_APP_DFSP_IMG__',
-  TEST_TEXT: '__TEST_TEXT__',
 };
-// console.log('KA code',REACT_APP_SCSS);
-console.log('App Title:', window.shellEnv.REACT_APP_TITLE);

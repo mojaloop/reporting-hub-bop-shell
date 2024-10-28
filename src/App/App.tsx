@@ -8,7 +8,6 @@ import './default_App.scss';
 function App({ userEmail, onMount, remotes, logout }: AppProps) {
   useEffect(() => {
     onMount();
-    console.log('Test Text:', window.shellEnv.TEST_TEXT);
     const scssPath = process.env.REACT_APP_SCSS;
     document.title = process.env.REACT_APP_TITLE || 'Mojaloop Finance Portal';
 
@@ -23,12 +22,10 @@ function App({ userEmail, onMount, remotes, logout }: AppProps) {
   } else if (remotes.error) {
     content = <MessageBox kind="danger">{remotes.error}</MessageBox>;
   } else {
-    // content = <Router remotes={remotes.data as Remote[]} />;
+    content = <Router remotes={remotes.data as Remote[]} />;
     content = (
       <>
         <Router remotes={remotes.data as Remote[]} />
-        <div>{window.shellEnv.TEST_TEXT}</div> {/* Render the test text */}
-        process.env.TEST_TEXT
       </>
     );
   }
@@ -38,7 +35,7 @@ function App({ userEmail, onMount, remotes, logout }: AppProps) {
       {/* TODO: Preferably we pop up a menu here */}
       <Layout.Navbar
         username={userEmail}
-        title={process.env.TEST_TEXT || 'Mojaloops Finance Portal'}
+        title={process.env.REACT_APP_TITLE || 'Mojaloops Finance Portal'}
         onUsernameClick={logout}
       >
         <div className="navbar__user-info">

@@ -23,8 +23,5 @@ sed -i 's#__REACT_APP_SUBTITLE__#'"$REACT_APP_SUBTITLE" '#g' /usr/share/nginx/ht
 sed -i 's#__REACT_APP_DFSP_IMG__#'"$REACT_APP_DFSP_IMG" '#g' /usr/share/nginx/html/runtime-env.js
 sed -i 's#__REACT_APP_DFSP_IMG__#'"$REACT_APP_DFSP_IMG" '#g' /usr/share/nginx/html/index.html
 
-sed -i 's#__TEST_TEXT__#'"$TEST_TEXT"'#g' /usr/share/nginx/html/runtime-env.js
-sed -i 's#__TEST_TEXT__#'"$TEST_TEXT" '#g' /usr/share/nginx/html/index.html
-
 exec "$@"
 
