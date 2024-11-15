@@ -3,16 +3,18 @@ import { Layout, MessageBox, Spinner } from 'components';
 import Router from './Router';
 import appConnector, { AppProps } from './connectors';
 import { Remote } from './types';
-import './default_App.scss';
+import './App.scss';
 
-function App({ userEmail, onMount, remotes, logout }: AppProps) {
+function App({ userEmail, onMount, remotes, logout, customization }: AppProps) {
   useEffect(() => {
     onMount();
-    const scssPath = process.env.REACT_APP_SCSS;
-    document.title = process.env.REACT_APP_TITLE || 'Mojaloop Finance Portal';
 
-    if (scssPath) {
-      import(`${scssPath}`).then(() => {}).catch(() => {});
+    document.title = customization.title || 'Mojaloop Finance Portal';
+    if (customization.titleImage) {
+      import(`${customization.titleImage}`).then(() => {}).catch(() => {});
+    }
+    if (customization.titleBarColor) {
+      import(`${customization.titleBarColor}`).then(() => {}).catch(() => {});
     }
   }, [onMount]);
 
@@ -33,13 +35,9 @@ function App({ userEmail, onMount, remotes, logout }: AppProps) {
   return (
     <Layout className="layout__container">
       {/* TODO: Preferably we pop up a menu here */}
-      <Layout.Navbar
-        username={userEmail}
-        title={process.env.REACT_APP_TITLE || 'Mojaloops Finance Portal'}
-        onUsernameClick={logout}
-      >
+      <Layout.Navbar username={userEmail} title={customization.title} onUsernameClick={logout}>
         <div className="navbar__user-info">
-          <img src={process.env.REACT_APP_DFSP_IMG} className="navbar__email-icon" alt="" />
+          <img src={customization.dfspImg} className="navbar__email-icon" alt="" />
         </div>
 
         <div className="rc-layout__navbar__logo" />

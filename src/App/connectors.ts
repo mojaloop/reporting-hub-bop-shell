@@ -11,6 +11,7 @@ const appConnector = connect(
     remotes: selectors.getRemotes(state),
     isLoggedIn: authSelectors.getIsLoggedIn(state),
     userEmail: authSelectors.getUserEmail(state),
+    customization: selectors.getCustomization(state),
   }),
   (dispatch: Dispatch) => ({
     onMount: () => dispatch(actions.requestRemotes()),

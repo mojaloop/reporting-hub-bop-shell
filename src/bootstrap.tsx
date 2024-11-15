@@ -34,6 +34,13 @@ async function boot() {
           authTokenEndpoint: config.authTokenEndpoint,
           isAuthEnabled: config.isAuthEnabled,
         },
+        customization: {
+          title: config.title,
+          subTitle: config.subTitle,
+          titleImage: config.titleImage,
+          titleBarColor: config.titleBarColor,
+          dfspImg: config.dfspImg,
+        },
       },
     },
   );

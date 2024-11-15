@@ -18,6 +18,13 @@ export const initialState: ConfigState = {
     logoutEndpoint: '',
     isAuthEnabled: true,
   },
+  customization: {
+    title: 'Mojaloop Financial Portal',
+    subTitle: '',
+    titleImage: '',
+    titleBarColor: '',
+    dfspImg: '',
+  },
   isDevelopment: false,
 };
 
