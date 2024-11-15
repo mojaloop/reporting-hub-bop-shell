@@ -30,21 +30,13 @@
 
   .rc-layout__navbar__logo {
     background-image: url('/public/mojaloop-white.png');
-    background-size: 141px 60px;
-    background-repeat: no-repeat;
-    width: 141px;
-    height: 60px;
-    margin-left: 10px;
-    margin-top: 5px;
-    position: absolute;
-  }
-
-  .rc-layout__navbar__logo {
-    background-image: url('/public/mojaloop-white.png');
     background-size: 126px 45px;
+    // background-size: 141px 60px;
     background-repeat: no-repeat;
     width: 126px;
     height: 45px;
+    // width: 141px;
+    // height: 60px;
     margin-right: 10px;
     margin-top: 5px;
     position: absolute;

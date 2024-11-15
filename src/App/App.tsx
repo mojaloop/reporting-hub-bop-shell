@@ -10,12 +10,6 @@ function App({ userEmail, onMount, remotes, logout, customization }: AppProps) {
     onMount();
 
     document.title = customization.title || 'Mojaloop Finance Portal';
-    if (customization.titleImage) {
-      import(`${customization.titleImage}`).then(() => {}).catch(() => {});
-    }
-    if (customization.titleBarColor) {
-      import(`${customization.titleBarColor}`).then(() => {}).catch(() => {});
-    }
   }, [onMount]);
 
   let content = null;
@@ -37,10 +31,19 @@ function App({ userEmail, onMount, remotes, logout, customization }: AppProps) {
       {/* TODO: Preferably we pop up a menu here */}
       <Layout.Navbar username={userEmail} title={customization.title} onUsernameClick={logout}>
         <div className="navbar__user-info">
-          <img src={customization.dfspImg} className="navbar__email-icon" alt="" />
+          {customization.dfspImg ? (
+            <img src={customization.dfspImg} className="navbar__email-icon" alt="" />
+          ) : null}
         </div>
 
-        <div className="rc-layout__navbar__logo" />
+        <div
+          className="rc-layout__navbar__logo"
+          style={{
+            backgroundImage: customization.titleImage
+              ? `url(${customization.titleImage})`
+              : undefined,
+          }}
+        />
       </Layout.Navbar>
       <Layout.Content>{content}</Layout.Content>
     </Layout>
