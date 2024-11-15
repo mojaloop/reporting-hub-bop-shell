@@ -9,7 +9,7 @@ volumes:
 services:
   reporting-hub-bop-shell:
     profiles: ['shell']
-    container_name: reporting-hub-bop-shell-one
+    # container_name: reporting-hub-bop-shell-one
     # container_name: reporting-hub-bop-shell
     image: reporting-hub-bop-shell-one:latest
     # image: reporting-hub-bop-shell
@@ -30,15 +30,15 @@ services:
       - REMOTE_2_URL=http://localhost:8082
       - REMOTE_3_URL=http://localhost:8083
       - REMOTE_4_URL=http://localhost:8084
-      - REACT_APP_TITLE=COMESA Finance Portal
+      - REACT_APP_TITLE=COMESA DRPP Finance Portal
       - REACT_APP_SUBTITLE=Accelarating regional trade through supporting cross boarder, instant lowcost, payments and transfers.
-      - REACT_APP_TITLE_IMAGE=https://www.zambiaembassy.org/sites/default/files/photos/Zambia_flag-1000px.jpg
+      - REACT_APP_TITLE_IMAGE=https://comesabusinesscouncil.org/wp-content/uploads/2022/10/cropped-cropped-cropped-cbc_logo-1.jpg
       - REACT_APP_TITLE_BAR_COLOR=#911414
-      - REACT_APP_DFSP_IMG=https://www.zambiaembassy.org/sites/default/files/photos/Zambia_flag-1000px.jpg
+      # - REACT_APP_DFSP_IMG=
       - TEST_TEXT="this is a test"
 
     ports:
-      - '8082:8080'
+      - '8080:8080'
     networks:
       - mojaloop-net
     healthcheck:
