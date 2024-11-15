@@ -100,3 +100,20 @@ docker compose --profile ory up -d
 - It redirects to the keycloak login page
 - Login with the new user created
 - Then it should return back to the portal
+
+## Local testing without Ory and Keycloak
+- Edit docker-compose.yaml file
+ - Go to reporting-hub-bop-shell service and make sure the AUTH_ENABLED environmental variable is false: 
+ ```
+ AUTH_ENABLED=false
+ ```
+- Edit the .env file
+ - Make sure the REACT_APP_AUTH_ENABLED variable is false: 
+ ```
+ REACT_APP_AUTH_ENABLED=false
+ ```
+ Run dependencies with the following command
+ ```
+ docker compose --profile ory up -d
+ ```
+ - Wait for all the containers become healthy.

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Column, Heading, Icon, Layout, Row, Text } from 'components';
+import { Column, Heading, Icon, Layout, Row } from 'components';
 import { Switch, Route } from 'react-router-dom';
 import EmotionLessIcon from 'bootstrap-icons/icons/emoji-expressionless.svg';
 import { useAuthConfig, AuthConfig } from 'Config';
@@ -29,20 +29,27 @@ interface HomeRouteProps {
 }
 function HomeRoute({ remotes }: HomeRouteProps) {
   return (
-    <>
-      <Heading size="3">This is your home route</Heading>
-      <br />
-      <br />
-      <Text>The api /api/remotes returned {remotes.length} remote apps</Text>
-      <br />
-      <br />
-      <Text>The config is the following</Text>
-      <code>
-        <pre style={{ background: '#eee', borderRadius: 5, padding: 10 }}>
-          {JSON.stringify(remotes, null, 2)}
-        </pre>
-      </code>
-    </>
+    <div className="home-route-container">
+      <div className="home-heading">
+        {/* add configuration to display DRPP name */}
+
+        <h3>Welcome to the {process.env.REACT_APP_TITLE || 'Mojaloops Finance Portal'}</h3>
+      </div>
+
+      <div className="home-text">
+        <p>{process.env.REACT_APP_SUBTITLE || 'Inclusive, equitable financial services for all'}</p>
+      </div>
+
+      {process.env.REACT_APP_TITLE == null && (
+        <div className="home-config">
+          <br />
+          <p>The configuration details are as follows:</p>
+          <code>
+            <pre className="config-details">{JSON.stringify(remotes, null, 2)}</pre>
+          </code>
+        </div>
+      )}
+    </div>
   );
 }
 
