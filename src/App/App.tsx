@@ -10,6 +10,10 @@ function App({ userEmail, onMount, remotes, logout, customization }: AppProps) {
     onMount();
 
     document.title = customization.title || 'Mojaloop Finance Portal';
+
+    const navBar = document.getElementsByClassName('rc-layout__navbar')[0] as HTMLElement;
+
+    navBar?.style.setProperty('background-color', customization.titleBarColor || '#00a3ff');
   }, [onMount]);
 
   let content = null;
