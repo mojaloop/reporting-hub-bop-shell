@@ -30,9 +30,9 @@ services:
       - REMOTE_2_URL=http://localhost:8082
       - REMOTE_3_URL=http://localhost:8083
       - REMOTE_4_URL=http://localhost:8084
-      - REACT_APP_TITLE=COMESA DRPP Finance Portal
+      - REACT_APP_TITLE=Mojaloop Finance Portal
       - REACT_APP_SUBTITLE=Accelarating regional trade through supporting cross boarder, instant lowcost, payments and transfers.
-      - REACT_APP_TITLE_IMAGE=https://comesabusinesscouncil.org/wp-content/uploads/2022/10/cropped-cropped-cropped-cbc_logo-1.jpg
+      # - REACT_APP_TITLE_IMAGE=
       - REACT_APP_TITLE_BAR_COLOR=#911414
       # - REACT_APP_DFSP_IMG=
       - TEST_TEXT="this is a test"

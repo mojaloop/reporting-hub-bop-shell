@@ -11,11 +11,5 @@ sed -i 's#__REMOTE_3_URL__#'"$REMOTE_3_URL"'#g' /usr/share/nginx/html/index.html
 sed -i 's#__REMOTE_4_URL__#'"$REMOTE_4_URL"'#g' /usr/share/nginx/html/runtime-env.js
 sed -i 's#__REMOTE_4_URL__#'"$REMOTE_4_URL"'#g' /usr/share/nginx/html/index.html
 
-sed -i 's#__REACT_APP_TITLE__#'"$REACT_APP_TITLE" '#g' /usr/share/nginx/html/runtime-env.js
-sed -i 's#__REACT_APP_TITLE_IMAGE__#'"$REACT_APP_TITLE_IMAGE" '#g' /usr/share/nginx/html/runtime-env.js
-sed -i 's#__REACT_APP_TITLE_BAR_COLOR__#'"$REACT_APP_TITLE_BAR_COLOR" '#g' /usr/share/nginx/html/runtime-env.js
-sed -i 's#__REACT_APP_SUBTITLE__#'"$REACT_APP_SUBTITLE" '#g' /usr/share/nginx/html/runtime-env.js
-sed -i 's#__REACT_APP_DFSP_IMG__#'"$REACT_APP_DFSP_IMG" '#g' /usr/share/nginx/html/runtime-env.js
-
 exec "$@"
 
