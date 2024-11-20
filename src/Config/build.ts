@@ -1,6 +1,6 @@
-import { ApiConfig, AppConfig, AuthConfig } from './types';
+import { ApiConfig, AppConfig, AuthConfig, CustomizationConfig } from './types';
 
-export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
+export default async (): Promise<AppConfig & AuthConfig & ApiConfig & CustomizationConfig> => {
   const { protocol, host } = window.location;
   const baseUrl = `${protocol}//${host}`;
   // Using the same protocol as we've been loaded from to avoid Mixed Content error.
@@ -15,10 +15,14 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     authMockApi: process.env.REACT_APP_AUTH_MOCK_API === 'true',
     remoteApiBaseUrl: `${process.env.REACT_APP_REMOTE_API_BASE_URL}`,
     remoteMockApi: process.env.REACT_APP_REMOTE_MOCK_API === 'true',
+    title: `${process.env.REACT_APP_TITLE}`,
+    titleImage: `${process.env.REACT_APP_TITLE_IMAGE}`,
+    titleBarColor: `${process.env.REACT_APP_TITLE_BAR_COLOR}`,
+    subTitle: `${process.env.REACT_APP_SUBTITLE}`,
+    dfspImg: `${process.env.REACT_APP_DFSP_IMG}`,
   };
 
   const config = { ...defaults };
-
   try {
     const {
       AUTH_API_BASE_URL,
@@ -30,10 +34,24 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
       LOGIN_PROVIDER,
       LOGOUT_URL,
       AUTH_TOKEN_URL,
+      TITLE,
+      TITLE_IMAGE,
+      TITLE_BAR_COLOR,
+      SUBTITLE,
+      DFSP_IMG,
     } = await fetch(`${baseUrl}/config.json`).then((response) => response.json());
 
     if (LOGIN_URL !== undefined) {
       config.loginEndpoint = LOGIN_URL;
+    }
+    if (TITLE !== undefined) {
+      config.title = TITLE;
+    }
+    if (TITLE_IMAGE !== undefined) {
+      config.titleImage = TITLE_IMAGE;
+    }
+    if (TITLE_BAR_COLOR !== undefined) {
+      config.titleBarColor = TITLE_BAR_COLOR;
     }
     if (LOGIN_PROVIDER !== undefined) {
       config.loginProvider = LOGIN_PROVIDER;
@@ -61,6 +79,10 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig> => {
     if (AUTH_ENABLED !== undefined) {
       config.isAuthEnabled = AUTH_ENABLED !== 'false';
     }
+    if (SUBTITLE !== undefined) {
+      config.subTitle = SUBTITLE;
+    }
+    if (DFSP_IMG !== undefined) config.dfspImg = DFSP_IMG;
   } catch (err) {
     // eslint-disable-next-line
     console.info('config returned error', err);

@@ -99,7 +99,7 @@ module.exports = {
     publicPath: '/',
     // Hash files for cache busting
     filename: '[name].[contenthash].js',
-    assetModuleFilename: "images/[hash][ext][query]",
+    assetModuleFilename: 'images/[hash][ext][query]',
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],

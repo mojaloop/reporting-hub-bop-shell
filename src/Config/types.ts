@@ -17,9 +17,18 @@ export interface AuthConfig {
   isAuthEnabled: boolean;
 }
 
+export interface CustomizationConfig {
+  title: string;
+  subTitle: string;
+  titleImage: string;
+  titleBarColor: string;
+  dfspImg: string;
+}
+
 export type ConfigState = {
   app: AppConfig;
   api: ApiConfig;
   auth: AuthConfig;
+  customization: CustomizationConfig;
   isDevelopment: boolean;
 };

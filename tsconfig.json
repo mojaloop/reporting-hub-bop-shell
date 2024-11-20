@@ -6,17 +6,16 @@
     "esModuleInterop": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-     "lib": ["es5", "es2015", "es2016", "dom"],
+    "lib": ["es5", "es2015", "es2016", "dom"],
     "moduleResolution": "node",
     "module": "esnext",
     "target": "esnext",
     "jsx": "react",
     "sourceMap": true,
     "declaration": false,
-    "allowJs": true,
+    "allowJs": true
   },
+  "include": ["src", "src/global.d.ts"],
   "include": ["src/**/*", "src/custom.d.ts"],
-  "exclude": [
-    "api/*"
-  ]
+  "exclude": ["api/*"]
 }

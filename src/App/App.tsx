@@ -5,10 +5,16 @@ import appConnector, { AppProps } from './connectors';
 import { Remote } from './types';
 import './App.scss';
 
-function App({ userEmail, onMount, remotes, logout }: AppProps) {
+function App({ userEmail, onMount, remotes, logout, customization }: AppProps) {
   useEffect(() => {
     onMount();
-  }, []);
+
+    document.title = customization.title || 'Mojaloop Finance Portal';
+
+    const navBar = document.getElementsByClassName('rc-layout__navbar')[0] as HTMLElement;
+
+    navBar?.style.setProperty('background-color', customization.titleBarColor || '#00a3ff');
+  }, [onMount]);
 
   let content = null;
   if (remotes.pending || !remotes.initialized) {
@@ -17,17 +23,31 @@ function App({ userEmail, onMount, remotes, logout }: AppProps) {
     content = <MessageBox kind="danger">{remotes.error}</MessageBox>;
   } else {
     content = <Router remotes={remotes.data as Remote[]} />;
+    content = (
+      <>
+        <Router remotes={remotes.data as Remote[]} />
+      </>
+    );
   }
 
   return (
     <Layout className="layout__container">
       {/* TODO: Preferably we pop up a menu here */}
-      <Layout.Navbar
-        username={userEmail}
-        title="Business Operations Portal"
-        onUsernameClick={logout}
-      >
-        <div className="rc-layout__navbar__logo" />
+      <Layout.Navbar username={userEmail} title={customization.title} onUsernameClick={logout}>
+        <div className="navbar__user-info">
+          {customization.dfspImg ? (
+            <img src={customization.dfspImg} className="navbar__email-icon" alt="" />
+          ) : null}
+        </div>
+
+        <div
+          className="rc-layout__navbar__logo"
+          style={{
+            backgroundImage: customization.titleImage
+              ? `url(${customization.titleImage})`
+              : undefined,
+          }}
+        />
       </Layout.Navbar>
       <Layout.Content>{content}</Layout.Content>
     </Layout>
