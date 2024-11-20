@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+## [2.3.0](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.2.3...v2.3.0) (2024-11-20)
+
+
+### Features
+
+* branding and customization IME160 ([#41](https://github.com/mojaloop/reporting-hub-bop-shell/issues/41)) ([86780b4](https://github.com/mojaloop/reporting-hub-bop-shell/commit/86780b44300a8002fa484bbd443c06f2cdca8f7d)), closes [#39](https://github.com/mojaloop/reporting-hub-bop-shell/issues/39)
+
 ### [2.2.3](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.2.2...v2.2.3) (2024-02-26)
 
 
