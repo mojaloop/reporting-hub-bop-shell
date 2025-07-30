@@ -8,6 +8,7 @@ echo "[
     \"label\": \"Roles\",
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
+    \"baseUrl\": \"${REMOTE_1_URL}\",
     \"url\": \"${REMOTE_1_URL}/app.js\",
     \"appName\": \"reporting_hub_bop_role_ui\"
   },
@@ -16,6 +17,7 @@ echo "[
     \"label\": \"Transfers\",
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
+    \"baseUrl\": \"${REMOTE_2_URL}\",
     \"url\": \"${REMOTE_2_URL}/app.js\",
     \"appName\": \"reporting_hub_bop_trx_ui\"
   },
@@ -24,6 +26,7 @@ echo "[
     \"label\": \"Settlements\",
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
+    \"baseUrl\": \"${REMOTE_3_URL}\",
     \"url\": \"${REMOTE_3_URL}/app.js\",
     \"appName\": \"reporting_hub_bop_settlements_ui\"
   },
@@ -32,6 +35,7 @@ echo "[
     \"label\": \"Financial Positions\",
     \"menuComponent\": \"Menu\",
     \"appComponent\": \"App\",
+    \"baseUrl\": \"${REMOTE_4_URL}\",
     \"url\": \"${REMOTE_4_URL}/app.js\",
     \"appName\": \"reporting_hub_bop_positions_ui\"
   }

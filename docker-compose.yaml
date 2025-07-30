@@ -144,6 +144,7 @@ configs:
           "label": "Roles",
           "menuComponent": "Menu",
           "appComponent": "App",
+          "baseUrl": "http://localhost:8081",
           "url": "http://localhost:8081/app.js",
           "appName": "reporting_hub_bop_role_ui"
         },
@@ -152,6 +153,7 @@ configs:
           "label": "Transfers",
           "menuComponent": "Menu",
           "appComponent": "App",
+          "baseUrl": "http://localhost:8082",
           "url": "http://localhost:8082/app.js",
           "appName": "reporting_hub_bop_trx_ui"
         },
@@ -160,6 +162,7 @@ configs:
           "label": "Settlements",
           "menuComponent": "Menu",
           "appComponent": "App",
+          "baseUrl": "http://localhost:8083",
           "url": "http://localhost:8083/app.js",
           "appName": "reporting_hub_bop_settlements_ui"
         },
@@ -168,6 +171,7 @@ configs:
           "label": "Financial Positions",
           "menuComponent": "Menu",
           "appComponent": "App",
+          "baseUrl": "http://localhost:8084",
           "url": "http://localhost:8084/app.js",
           "appName": "reporting_hub_bop_positions_ui"
         }
