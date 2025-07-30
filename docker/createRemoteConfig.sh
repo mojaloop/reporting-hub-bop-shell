@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Creates the Remotes config based on environment variables
+if [ ! -f /usr/share/nginx/html/remotes.json ]; then
 echo "[
   {
     \"path\": \"/iam\",
@@ -35,6 +36,8 @@ echo "[
     \"appName\": \"reporting_hub_bop_positions_ui\"
   }
 ]" | jq '.' > /usr/share/nginx/html/remotes.json
-
+else
+  echo "Remotes config file already exists, skipping creation."
+fi
 # This will exec the CMD from your Dockerfile, i.e. "npm start"
 exec "$@"
