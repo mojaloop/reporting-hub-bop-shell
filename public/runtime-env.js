@@ -4,7 +4,7 @@ window.shellEnv = {}
 
 fetch('/remotes.json')
   .then(response => response.json())
-  .then(remotes => remotes.forEach(({baseUrl}, index) => window.shellEnv[`REMOTE_${index + 1}_URL`] = baseUrl))
+  .then(remotes => Object.values(remotes).forEach(({baseUrl}, index) => window.shellEnv[`REMOTE_${index + 1}_URL`] = baseUrl))
   .catch(error => {
     console.error('Error loading remote URLs:', error);
   })
