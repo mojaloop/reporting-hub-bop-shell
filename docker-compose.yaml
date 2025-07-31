@@ -17,24 +17,12 @@ services:
       context: .
       # cache_from:
       #   - mojaloop/reporting-hub-bop-shell
+    configs:
+      - source: remotes.json
+        target: /usr/share/nginx/html/remotes.json
+      - source: config.json
+        target: /usr/share/nginx/html/config.json
     environment:
-      - LOGIN_URL=http://127.0.0.1:4455/.ory/kratos/public/self-service/login
-      - LOGOUT_URL=http://127.0.0.1:4455/.ory/kratos/public/self-service/logout/browser
-      - AUTH_TOKEN_URL=http://127.0.0.1:4455/.ory/kratos/public/sessions/whoami
-      - AUTH_ENABLED=true
-      - AUTH_API_BASE_URL=/
-      - AUTH_MOCK_API=true
-      - REMOTE_API_BASE_URL=/docker
-      - REMOTE_MOCK_API=true
-      - REMOTE_1_URL=http://localhost:8081
-      - REMOTE_2_URL=http://localhost:8082
-      - REMOTE_3_URL=http://localhost:8083
-      - REMOTE_4_URL=http://localhost:8084
-      - REACT_APP_TITLE=Mojaloop Finance Portal
-      - REACT_APP_SUBTITLE=Accelarating regional trade through supporting cross boarder, instant lowcost, payments and transfers.
-      # - REACT_APP_TITLE_IMAGE=
-      - REACT_APP_TITLE_BAR_COLOR=#911414
-      # - REACT_APP_DFSP_IMG=
       - TEST_TEXT="this is a test"
 
     ports:
@@ -146,3 +134,63 @@ services:
       test: 'mysqladmin ping -u root -p$${MYSQL_ROOT_PASSWORD}'
     networks:
       - mojaloop-net
+
+configs:
+  remotes.json:
+    content: |
+      [
+        {
+          "path": "/iam",
+          "label": "Roles",
+          "menuComponent": "Menu",
+          "appComponent": "App",
+          "baseUrl": "http://localhost:8081",
+          "url": "http://localhost:8081/app.js",
+          "appName": "reporting_hub_bop_role_ui"
+        },
+        {
+          "path": "/transfers",
+          "label": "Transfers",
+          "menuComponent": "Menu",
+          "appComponent": "App",
+          "baseUrl": "http://localhost:8082",
+          "url": "http://localhost:8082/app.js",
+          "appName": "reporting_hub_bop_trx_ui"
+        },
+        {
+          "path": "/settlements",
+          "label": "Settlements",
+          "menuComponent": "Menu",
+          "appComponent": "App",
+          "baseUrl": "http://localhost:8083",
+          "url": "http://localhost:8083/app.js",
+          "appName": "reporting_hub_bop_settlements_ui"
+        },
+        {
+          "path": "/positions",
+          "label": "Financial Positions",
+          "menuComponent": "Menu",
+          "appComponent": "App",
+          "baseUrl": "http://localhost:8084",
+          "url": "http://localhost:8084/app.js",
+          "appName": "reporting_hub_bop_positions_ui"
+        }
+      ]
+  config.json:
+    content: |
+      {
+        "AUTH_API_BASE_URL": "/",
+        "AUTH_MOCK_API": "true",
+        "REMOTE_API_BASE_URL": "/docker",
+        "REMOTE_MOCK_API": "true",
+        "AUTH_ENABLED": "true",
+        "LOGIN_URL": "http://127.0.0.1:4455/.ory/kratos/public/self-service/login",
+        "LOGIN_PROVIDER": "",
+        "LOGOUT_URL": "http://127.0.0.1:4455/.ory/kratos/public/self-service/logout/browser",
+        "TITLE": "Mojaloop Finance Portal",
+        "TITLE_IMAGE": "",
+        "TITLE_BAR_COLOR": "#911414",
+        "SUBTITLE": "Accelerating regional trade through supporting cross border, instant low-cost, payments and transfers.",
+        "DFSP_IMG": "",
+        "AUTH_TOKEN_URL": "http://127.0.0.1:4455/.ory/kratos/public/sessions/whoami"
+      }

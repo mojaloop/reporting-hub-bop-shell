@@ -54,7 +54,6 @@ COPY nginx/start.sh /usr/share/nginx/start.sh
 COPY docker/entrypoint.sh /usr/share/nginx/html/entrypoint.sh
 COPY docker/createJSONConfig.sh /usr/share/nginx/html/createJSONConfig.sh
 COPY docker/createRemoteConfig.sh /usr/share/nginx/html/createRemoteConfig.sh
-COPY docker/loadRuntimeConfig.sh /usr/share/nginx/html/loadRuntimeConfig.sh
 
 # Give appuser permissions to nginx
 RUN chown -R appuser:appuser \
@@ -66,7 +65,6 @@ RUN chown -R appuser:appuser \
 RUN chmod +x /usr/share/nginx/html/entrypoint.sh
 RUN chmod +x /usr/share/nginx/html/createJSONConfig.sh
 RUN chmod +x /usr/share/nginx/html/createRemoteConfig.sh
-RUN chmod +x /usr/share/nginx/html/loadRuntimeConfig.sh
 
 USER appuser
 EXPOSE 8080

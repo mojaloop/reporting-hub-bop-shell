@@ -1,7 +1,17 @@
 // https://medium.com/@hasniarif/how-to-handle-runtime-environment-variables-with-react-ec809cb07831
-window.shellEnv = {
-  REMOTE_1_URL: '__REMOTE_1_URL__',
-  REMOTE_2_URL: '__REMOTE_2_URL__',
-  REMOTE_3_URL: '__REMOTE_3_URL__',
-  REMOTE_4_URL: '__REMOTE_4_URL__'
-};
+
+window.shellEnv = {}
+
+fetch('/remotes.json')
+  .then(response => response.json())
+  .then(remotes => Object.values(remotes).forEach(({baseUrl}, index) => window.shellEnv[`REMOTE_${index + 1}_URL`] = baseUrl))
+  .catch(error => {
+    console.error('Error loading remote URLs:', error);
+  })
+  .then(() => {
+    Object.values(window.shellEnv).forEach(baseUrl => {
+      const script = document.createElement('script');
+      script.src = baseUrl + '/runtime-env.js';
+      document.head.appendChild(script);
+    });
+  })

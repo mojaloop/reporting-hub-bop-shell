@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Creates the JSON config based on environment variables
+if [ ! -f /usr/share/nginx/html/config.json ]; then
 echo "{
   \"AUTH_API_BASE_URL\": \"${AUTH_API_BASE_URL}\",
   \"AUTH_MOCK_API\": \"${AUTH_MOCK_API}\",
@@ -17,6 +18,8 @@ echo "{
   \"DFSP_IMG\": \"${REACT_APP_DFSP_IMG}\",
   \"AUTH_TOKEN_URL\": \"${AUTH_TOKEN_URL}\"
 }" | jq '.' > /usr/share/nginx/html/config.json
-
+else
+  echo "Config file already exists, skipping creation."
+fi
 # This will exec the CMD from your Dockerfile, i.e. "npm start"
 exec "$@"
