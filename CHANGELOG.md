@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [2.3.3](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.3.1...v2.3.3) (2025-07-31)
+
+
+### Bug Fixes
+
+* support read only root filesystem ([#46](https://github.com/mojaloop/reporting-hub-bop-shell/issues/46)) ([c0d68d3](https://github.com/mojaloop/reporting-hub-bop-shell/commit/c0d68d305923473671a2eeb13ed88cb316fb5636))
+
 ### [2.3.1](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.3.0...v2.3.1) (2024-11-20)
 
 
