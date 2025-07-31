@@ -7,7 +7,7 @@ function* requestRemotes() {
   try {
     const { status, data } = yield call(apis.remotes.read, {});
     if (is200(status)) {
-      yield put(actions.requestRemotesSuccess(data));
+      yield put(actions.requestRemotesSuccess(Object.values(data)));
     } else {
       yield put(
         actions.requestRemotesFailed(
