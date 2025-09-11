@@ -16,9 +16,9 @@ const config = {
   DEV_PORT,
 };
 
-module.exports = {
+module.exports = (env, argv) => ({
   entry: './src/index',
-  devtool: 'eval-cheap-module-source-map',
+  devtool: argv.mode === 'production' ? 'source-map' : 'eval-cheap-module-source-map',
   devServer: {
     disableHostCheck: true,
     // Enable gzip compression of generated files.
@@ -194,4 +194,4 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
-};
+});
