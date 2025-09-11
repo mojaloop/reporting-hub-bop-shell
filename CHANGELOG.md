@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [2.3.5](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.3.3...v2.3.5) (2025-09-11)
+
+
+### Bug Fixes
+
+* update webpack config to support different devtool settings based on mode ([#49](https://github.com/mojaloop/reporting-hub-bop-shell/issues/49)) ([505ad3f](https://github.com/mojaloop/reporting-hub-bop-shell/commit/505ad3f3557e8f6c0c816dec4c0be258e25b9189))
+
 ### [2.3.3](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.3.1...v2.3.3) (2025-07-31)
 
 
