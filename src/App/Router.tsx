@@ -39,16 +39,6 @@ function HomeRoute({ remotes }: HomeRouteProps) {
       <div className="home-text">
         <p>{process.env.REACT_APP_SUBTITLE || 'Inclusive, equitable financial services for all'}</p>
       </div>
-
-      {process.env.REACT_APP_TITLE == null && (
-        <div className="home-config">
-          <br />
-          <p>The configuration details are as follows:</p>
-          <code>
-            <pre className="config-details">{JSON.stringify(remotes, null, 2)}</pre>
-          </code>
-        </div>
-      )}
     </div>
   );
 }
