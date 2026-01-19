@@ -1,4 +1,11 @@
 # Changelog: [mojaloop/reporting-hub-bop-shell](https://github.com/mojaloop/reporting-hub-bop-shell)
+### [2.3.6](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.3.5...v2.3.6) (2026-01-19)
+
+
+### Maintenance
+
+* remove json config from home page ([#59](https://github.com/mojaloop/reporting-hub-bop-shell/issues/59)) ([a3962ee](https://github.com/mojaloop/reporting-hub-bop-shell/commit/a3962eeae8674087258282cc184a77a17605d119))
+
 ### [2.3.5](https://github.com/mojaloop/reporting-hub-bop-shell/compare/v2.3.3...v2.3.5) (2025-09-11)
 
 
