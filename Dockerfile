@@ -25,7 +25,7 @@ ENV REACT_APP_COMMIT=$REACT_APP_COMMIT
 RUN yarn build
 
 # Second part, create a config at boostrap via entrypoint and and serve it
-FROM nginx:1.16.0-alpine
+FROM nginx:1.29.1-alpine
 
 # JQ is used to convert from JSON string to json file in bash
 # Required for runtime configuration scripts
