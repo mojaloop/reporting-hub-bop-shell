@@ -10,8 +10,9 @@ pubSub.dispatch('channel-A', 'channel-A queue message', { persist: 10000 });
 
 interface BaseLoaderProps {
   url: string;
-  appName: string;
+  scope: string;
   component: string;
+  crossOrigin?: boolean;
   Fallback?: ComponentType;
   children?: React.ReactNode;
   [x: string]: any;
@@ -48,19 +49,20 @@ export default class Loader extends Component<LoaderProps> {
 
   constructor(props: LoaderProps) {
     super(props);
-    const { url, appName, component } = this.props;
+    const { url, scope, component, crossOrigin } = this.props;
 
     // load before mount so that it's stored in memory and won't cause
     // reloads when rendered again
-    this.AsyncComponent = React.lazy(loadComponent<LazyProps>(url, appName, component));
+    this.AsyncComponent = React.lazy(loadComponent<LazyProps>(url, scope, component, crossOrigin));
   }
 
   render() {
     const {
       // these ones are not passed down, only used internally
       url,
-      appName,
+      scope,
       component,
+      crossOrigin,
       Fallback = BaseFallback,
       // these props are passed to the async component
       path,

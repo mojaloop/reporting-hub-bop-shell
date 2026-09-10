@@ -15,6 +15,7 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig & Customizat
     authMockApi: process.env.REACT_APP_AUTH_MOCK_API === 'true',
     remoteApiBaseUrl: `${process.env.REACT_APP_REMOTE_API_BASE_URL}`,
     remoteMockApi: process.env.REACT_APP_REMOTE_MOCK_API === 'true',
+    capabilitiesEndpoint: `${process.env.REACT_APP_CAPABILITIES_URL || ''}`,
     title: `${process.env.REACT_APP_TITLE}`,
     titleImage: `${process.env.REACT_APP_TITLE_IMAGE}`,
     titleBarColor: `${process.env.REACT_APP_TITLE_BAR_COLOR}`,
@@ -39,6 +40,7 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig & Customizat
       TITLE_BAR_COLOR,
       SUBTITLE,
       DFSP_IMG,
+      CAPABILITIES_URL,
     } = await fetch(`${baseUrl}/config.json`).then((response) => response.json());
 
     if (LOGIN_URL !== undefined) {
@@ -83,6 +85,9 @@ export default async (): Promise<AppConfig & AuthConfig & ApiConfig & Customizat
       config.subTitle = SUBTITLE;
     }
     if (DFSP_IMG !== undefined) config.dfspImg = DFSP_IMG;
+    if (CAPABILITIES_URL !== undefined) {
+      config.capabilitiesEndpoint = CAPABILITIES_URL;
+    }
   } catch (err) {
     // eslint-disable-next-line
     console.info('config returned error', err);

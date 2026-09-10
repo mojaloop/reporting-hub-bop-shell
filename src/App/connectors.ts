@@ -9,6 +9,7 @@ import { actions as authActions } from '../Auth/slice';
 const appConnector = connect(
   (state: State) => ({
     remotes: selectors.getRemotes(state),
+    visibleRemotes: selectors.getVisibleRemotes(state),
     isLoggedIn: authSelectors.getIsLoggedIn(state),
     userEmail: authSelectors.getUserEmail(state),
     customization: selectors.getCustomization(state),

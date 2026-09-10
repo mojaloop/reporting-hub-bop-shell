@@ -8,13 +8,14 @@ import Menu from './Menu';
 import { Remote } from './types';
 
 function getRoutes(remotes: Remote[], authConfig: AuthConfig) {
-  return remotes.map(({ path, appComponent, url, appName }) => {
+  return remotes.map(({ path, appComponent, url, scope, crossOrigin }) => {
     return (
       <Route path={path} key={path}>
         <Loader
           main
           url={url}
-          appName={appName}
+          scope={scope}
+          crossOrigin={crossOrigin}
           component={appComponent}
           path={path}
           authConfig={authConfig}

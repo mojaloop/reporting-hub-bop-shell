@@ -10,6 +10,7 @@ export const initialState: ConfigState = {
     authMockApi: false,
     remoteApiBaseUrl: '',
     remoteMockApi: false,
+    capabilitiesEndpoint: '',
   },
   auth: {
     authTokenEndpoint: '',

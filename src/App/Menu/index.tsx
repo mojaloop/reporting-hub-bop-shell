@@ -6,20 +6,33 @@ import { MenuItemElement } from '@modusbox/react-components/lib/components/Menu/
 import { Remote } from 'App/types';
 import './Menu.scss';
 
+function isActive(pathname: string, path: string) {
+  return pathname === path || pathname.startsWith(`${path}/`);
+}
+
+// A container is fetched when its section is entered, so opening the portal
+// costs one request rather than one per remote
 function getMenuItems(remotes: Remote[], pathname: string, onChange: (path: string) => void) {
-  return remotes.map(({ path, label, menuComponent, url, appName }) => {
-    return (
-      <Menu.Item key={path} path={path} label={label} partial>
-        <Menu.Item path="/" label="back to main menu" back />
+  return remotes.map(({ path, label, menuComponent, url, scope, crossOrigin }) => {
+    const children = [<Menu.Item key="back" path="/" label="back to main menu" back />];
+    if (isActive(pathname, path)) {
+      children.push(
         <Loader
+          key="app"
           main={false}
           url={url}
-          appName={appName}
+          scope={scope}
+          crossOrigin={crossOrigin}
           component={menuComponent}
           pathname={pathname}
           onChange={onChange}
           path={path}
-        />
+        />,
+      );
+    }
+    return (
+      <Menu.Item key={path} path={path} label={label} partial>
+        {children}
       </Menu.Item>
     );
   });

@@ -5,7 +5,8 @@ const remotes = [
     menuComponent: 'Menu',
     appComponent: 'App',
     url: `${process.env.REMOTE_1_URL}/app.js`,
-    appName: 'reporting_hub_bop_role_ui',
+    scope: 'reporting_hub_bop_role_ui',
+    permission: { namespace: 'Iam', object: 'mojaloop', relation: 'manage' },
   },
   {
     path: '/transfers',
@@ -13,7 +14,8 @@ const remotes = [
     menuComponent: 'Menu',
     appComponent: 'App',
     url: `${process.env.REMOTE_2_URL}/app.js`,
-    appName: 'reporting_hub_bop_trx_ui',
+    scope: 'reporting_hub_bop_trx_ui',
+    permission: { namespace: 'Reporting', object: 'mojaloop', relation: 'transferView' },
   },
   {
     path: '/settlements',
@@ -21,7 +23,8 @@ const remotes = [
     menuComponent: 'Menu',
     appComponent: 'App',
     url: `${process.env.REMOTE_3_URL}/app.js`,
-    appName: 'reporting_hub_bop_settlements_ui',
+    scope: 'reporting_hub_bop_settlements_ui',
+    permission: { namespace: 'Ledger', object: 'mojaloop', relation: 'settlementView' },
   },
   {
     path: '/positions',
@@ -29,7 +32,8 @@ const remotes = [
     menuComponent: 'Menu',
     appComponent: 'App',
     url: `${process.env.REMOTE_4_URL}/app.js`,
-    appName: 'reporting_hub_bop_positions_ui',
+    scope: 'reporting_hub_bop_positions_ui',
+    permission: { namespace: 'Ledger', object: 'mojaloop', relation: 'participantView' },
   },
 ];
 

@@ -4,6 +4,7 @@ import { AppState, Remote } from './types';
 
 export const initialState: AppState = {
   remotes: requestState(),
+  permitted: requestState(),
 };
 
 const slice = createSlice({
@@ -26,6 +27,24 @@ const slice = createSlice({
       return {
         ...state,
         remotes: requestState.failed(state.remotes, action.payload),
+      };
+    },
+    requestPermitted(state: AppState) {
+      return {
+        ...state,
+        permitted: requestState.request(state.permitted),
+      };
+    },
+    requestPermittedSuccess(state: AppState, action: PayloadAction<string[]>) {
+      return {
+        ...state,
+        permitted: requestState.succeeded(state.permitted, action.payload),
+      };
+    },
+    requestPermittedFailed(state: AppState, action: PayloadAction<string>) {
+      return {
+        ...state,
+        permitted: requestState.failed(state.permitted, action.payload),
       };
     },
   },

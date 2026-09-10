@@ -5,7 +5,7 @@ import appConnector, { AppProps } from './connectors';
 import { Remote } from './types';
 import './App.scss';
 
-function App({ userEmail, onMount, remotes, logout, customization }: AppProps) {
+function App({ userEmail, onMount, remotes, visibleRemotes, logout, customization }: AppProps) {
   useEffect(() => {
     onMount();
 
@@ -22,12 +22,7 @@ function App({ userEmail, onMount, remotes, logout, customization }: AppProps) {
   } else if (remotes.error) {
     content = <MessageBox kind="danger">{remotes.error}</MessageBox>;
   } else {
-    content = <Router remotes={remotes.data as Remote[]} />;
-    content = (
-      <>
-        <Router remotes={remotes.data as Remote[]} />
-      </>
-    );
+    content = <Router remotes={visibleRemotes} />;
   }
 
   return (

@@ -61,6 +61,7 @@ export default function loadComponent<Props = any>(
   url: string,
   scope: string,
   component: string,
+  crossOrigin?: boolean,
 ): () => Promise<{ default: ComponentType<Props> }> {
   return () =>
     new Promise((resolve, reject) => {
@@ -108,8 +109,17 @@ export default function loadComponent<Props = any>(
         // setup the script
         const script = document.createElement('script');
         script.src = url;
+        if (crossOrigin) {
+          script.crossOrigin = 'anonymous';
+        }
+        // The browser reports a refused container the same way it reports an
+        // unreachable one, so name both rather than guess between them
         script.onerror = () => {
-          reject(new WebpackLoadingError(`Error loading from ${url}`));
+          reject(
+            new WebpackLoadingError(
+              `Could not load ${url}. It is either unavailable or not available to this user.`,
+            ),
+          );
           externals.deleteApp(app);
         };
         script.onload = makeLoad(script, app);
