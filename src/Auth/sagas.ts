@@ -85,7 +85,7 @@ function* doAuth() {
 function* logout() {
   const logoutEndpoint: string = yield select(selectors.getLogoutEndpoint);
   const logoutUrl: string = `${logoutEndpoint}`;
-  fetch(logoutUrl, { headers: { accept: 'application/json' } })
+  fetch(logoutUrl, { headers: { accept: 'application/json' }, credentials: 'include' })
     .then((response) => response.json())
     .then((jsonResponse) => {
       window.location.assign(jsonResponse.logout_url);
