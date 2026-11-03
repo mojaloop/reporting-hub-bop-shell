@@ -2,10 +2,17 @@ import React, { useEffect } from 'react';
 import { Layout, MessageBox, Spinner } from 'components';
 import Router from './Router';
 import appConnector, { AppProps } from './connectors';
-import { Remote } from './types';
 import './App.scss';
 
-function App({ userEmail, onMount, remotes, visibleRemotes, logout, customization }: AppProps) {
+export function App({
+  userEmail,
+  onMount,
+  remotes,
+  permitted,
+  visibleRemotes,
+  logout,
+  customization,
+}: AppProps) {
   useEffect(() => {
     onMount();
 
@@ -21,6 +28,8 @@ function App({ userEmail, onMount, remotes, visibleRemotes, logout, customizatio
     content = <Spinner center />;
   } else if (remotes.error) {
     content = <MessageBox kind="danger">{remotes.error}</MessageBox>;
+  } else if (permitted.pending || !permitted.initialized) {
+    content = <Spinner center />;
   } else {
     content = <Router remotes={visibleRemotes} />;
   }

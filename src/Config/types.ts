@@ -7,7 +7,6 @@ export type ApiConfig = {
   authMockApi: boolean;
   remoteApiBaseUrl: string;
   remoteMockApi: boolean;
-  capabilitiesEndpoint: string;
 };
 
 export interface AuthConfig {

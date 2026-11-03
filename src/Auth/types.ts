@@ -25,6 +25,10 @@ export interface LoggedUser {
         via: string;
       },
     ];
+    // Written by the IAM when the person signs in: each permission they hold
+    metadata_public?: {
+      permissions?: Record<string, unknown>;
+    };
   };
 }
 

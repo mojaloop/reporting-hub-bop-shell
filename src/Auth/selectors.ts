@@ -15,3 +15,7 @@ const getUser = (state: State) => state.auth.user;
 
 export const getUserEmail = createSelector(getUser, (user) => user?.identity.traits.email);
 export const getUserRole = createSelector(getUser, (user) => user?.identity.traits.role);
+export const getSessionPermissions = createSelector(
+  getUser,
+  (user) => user?.identity.metadata_public?.permissions ?? {},
+);

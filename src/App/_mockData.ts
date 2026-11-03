@@ -6,7 +6,7 @@ const remotes = [
     appComponent: 'App',
     url: `${process.env.REMOTE_1_URL}/app.js`,
     scope: 'reporting_hub_bop_role_ui',
-    permission: { namespace: 'Iam', object: 'mojaloop', relation: 'manage' },
+    permission: 'portalRoles.view',
   },
   {
     path: '/transfers',
@@ -15,7 +15,7 @@ const remotes = [
     appComponent: 'App',
     url: `${process.env.REMOTE_2_URL}/app.js`,
     scope: 'reporting_hub_bop_trx_ui',
-    permission: { namespace: 'Reporting', object: 'mojaloop', relation: 'transferView' },
+    permission: 'portalTransfers.view',
   },
   {
     path: '/settlements',
@@ -24,7 +24,7 @@ const remotes = [
     appComponent: 'App',
     url: `${process.env.REMOTE_3_URL}/app.js`,
     scope: 'reporting_hub_bop_settlements_ui',
-    permission: { namespace: 'Ledger', object: 'mojaloop', relation: 'settlementView' },
+    permission: 'portalSettlements.view',
   },
   {
     path: '/positions',
@@ -33,7 +33,7 @@ const remotes = [
     appComponent: 'App',
     url: `${process.env.REMOTE_4_URL}/app.js`,
     scope: 'reporting_hub_bop_positions_ui',
-    permission: { namespace: 'Ledger', object: 'mojaloop', relation: 'participantView' },
+    permission: 'portalPositions.view',
   },
 ];
 
