@@ -38,10 +38,6 @@ WORKDIR /usr/share/nginx/html
 # Copy build over from builder
 COPY --from=builder /opt/reporting-hub-bop-shell/dist/ /usr/share/nginx/html
 
-# The document the platform composes this service's authorization from, at the
-# path a deployment names it by
-COPY --from=builder /opt/reporting-hub-bop-shell/src/api /opt/app/src/api
-
 # Remove nginx config
 RUN rm /etc/nginx/conf.d/default.conf /etc/nginx/nginx.conf
 
